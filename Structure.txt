@@ -1,0 +1,19 @@
+##Stages:
+  1. hit the target with specific velocity given constant 0 acceleration
+    solve for:
+      time  (distance and acceleration)
+      distance  (velocity and time)
+      acceleration (given time and distance)
+  2. Hit the target below the starting point given constant y acceleration
+    solve for:
+      final velocity
+      initial velocity
+      angle
+  3. Trajectory equation
+    solve for:
+      angle
+      distance x (angle, distance y, velocity, acceleration)
+      distance y (angle, distance x, velocity, acceleration)
+      velocity initial (angle, distance x, distance y, acceleration)
+      velocity final (initial velocity, angle, distance x, distance y, acceleration)
+  4. TBD
