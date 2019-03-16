@@ -3,12 +3,14 @@ maxStage = 3;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  //the stage number is initalized to zero
+  //the stage number is initalized to zero in the html file
   constructorRun = false;
 }
 
 function draw() {
   background(135, 206, 250);
+
+  //determine what stage we're on
   switch (stageNumber) {
     case 1:
       //run the constructor for stage one if it hasn't been run
@@ -25,8 +27,12 @@ function draw() {
       break;
     /*
         ...
-      */
+    */
     default:
+      //this isn't a valid stage...reset
+      stageNumber = 1;
+      constructorRun = false;
+      break;
   }
 }
 
