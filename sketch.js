@@ -4,7 +4,7 @@ function setup() {
 
 function draw() {
     background(135, 206, 250);
-    ellipse(150, 500, 50, 50)//cloud
+    quad(150, 90, 160, 90, 90, 10, 160, 10);
 }
 
 function windowResized() {
