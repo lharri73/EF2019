@@ -13,11 +13,8 @@ function setup() {
 }
 
 function draw() {
-<<<<<<< HEAD
     background(135, 206, 250);
     ellipse(150, 500, 50, 50)//cloud
-=======
-  background(135, 206, 250);
 
   //determine what stage we're on
   switch (stageNumber) {
@@ -43,7 +40,6 @@ function draw() {
       constructorRun = false;
       break;
   }
->>>>>>> master
 }
 
 function incrimentStage() {
