@@ -1,5 +1,6 @@
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  //the stage number is initalized to zero
 }
 
 function draw() {
