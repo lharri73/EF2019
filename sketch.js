@@ -1,6 +1,11 @@
 //this is used to prevent the game from running a stage that doesn't exist
 maxStage = 3;
 
+function windowResized() {
+  //this handles the resizing of the window
+  resizeCanvas(windowWidth, windowHeight);
+}
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   //the stage number is initalized to zero in the html file
@@ -36,11 +41,6 @@ function draw() {
   }
 }
 
-function windowResized() {
-  //this handles the resizing of the window
-  resizeCanvas(windowWidth, windowHeight);
-}
-
 function incrimentStage() {
   if (stageNumber == maxStage) {
     return;
@@ -48,4 +48,8 @@ function incrimentStage() {
 
   stageNumber++;
   constructorRun = false;
+}
+
+function mouseClicked() {
+  isActive = !isActive;
 }
