@@ -18,3 +18,11 @@ function drawStage1() {
     initialPosition.add(1, 0);
   }
 }
+
+function stage1keyPressed(value) {
+  //value is the value of the key pressed
+}
+
+function stage1MouseClicked() {
+  //returns when on stage one and the mouse is clicked
+}
