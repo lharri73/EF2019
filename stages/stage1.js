@@ -1,0 +1,1 @@
+function drawStage1() {}
