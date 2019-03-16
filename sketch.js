@@ -13,8 +13,8 @@ function setup() {
 }
 
 function draw() {
-    background(135, 206, 250);
-    ellipse(150, 500, 50, 50)//cloud
+  background(135, 206, 250);
+  ellipse(150, 500, 50, 50); //cloud
 
   //determine what stage we're on
   switch (stageNumber) {
@@ -44,6 +44,8 @@ function draw() {
 
 function incrimentStage() {
   if (stageNumber == maxStage) {
+    //you win and have made it through all of the stages!
+    //determine if we reset or just keep it at this stage
     return;
   }
 
@@ -52,5 +54,23 @@ function incrimentStage() {
 }
 
 function mouseClicked() {
-  isActive = !isActive;
+  switch (stageNumber) {
+    case 1:
+      stage1MouseClicked();
+      break;
+    case 2:
+      stage2MouseClicked();
+      break;
+  }
+}
+
+function keyPressed() {
+  switch (stageNumber) {
+    case 1:
+      stage1keyPressed(value);
+      break;
+    case 2:
+      stage2keyPressed(value);
+      break;
+  }
 }
