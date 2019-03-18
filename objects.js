@@ -15,3 +15,19 @@ function drawTarget(xPosition, yPosition) {
   fill(255); //color white
   ellipse(xPosition, yPosition, 50, 100);
 }
+
+class ball {
+  constructor(positionVector, veolictyVector) {
+    this.position = positionVector;
+    this.velocity = veolictyVector;
+  }
+  draw() {
+    fill(244, 75, 66); //red color for the ball
+    stroke(0); //sets the outline color to white
+    strokeWeight(1); //this is the default stroke weight
+    ellipse(this.position.x, this.position.y, 20);
+  }
+  update() {
+    this.position.add(this.velocity);
+  }
+}
