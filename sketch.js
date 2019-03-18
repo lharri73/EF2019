@@ -14,7 +14,6 @@ function setup() {
 
 function draw() {
   background(135, 206, 250);
-  ellipse(150, 500, 50, 50); //cloud
 
   //determine what stage we're on
   switch (stageNumber) {
@@ -67,10 +66,10 @@ function mouseClicked() {
 function keyPressed() {
   switch (stageNumber) {
     case 1:
-      stage1keyPressed(value);
+      stage1keyPressed(keyCode);
       break;
     case 2:
-      stage2keyPressed(value);
+      stage2keyPressed(keyCode);
       break;
   }
 }
