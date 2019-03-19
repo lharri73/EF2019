@@ -17,9 +17,10 @@ function drawTarget(xPosition, yPosition) {
 }
 
 class ball {
-  constructor(positionVector, veolictyVector) {
+  constructor(positionVector, veolictyVector, accelerationVector) {
     this.position = positionVector;
     this.velocity = veolictyVector;
+    this.acceleration = accelerationVector;
   }
   draw() {
     fill(244, 75, 66); //red color for the ball
@@ -28,6 +29,7 @@ class ball {
     ellipse(this.position.x, this.position.y, 20);
   }
   update() {
+    this.velocity.add(this.acceleration);
     this.position.add(this.velocity);
   }
 }

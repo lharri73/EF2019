@@ -14,7 +14,7 @@ function stage1Constructor() {
 
   //----------------------------------------------------------------------------
   //this creates the textBox in the middle of the screen
-  //its contents are returned by calling textBox.value()
+  //its contents are returned from the textBox.value() function
   textSize(20); //font size
   textBox = createInput();
   textBox.style("color", "#ffffff"); //text color
@@ -40,7 +40,7 @@ function drawStage1() {
   }
 }
 //------------------------------------------------------------------------------
-//begin objectives
+//objectives
 function drawObjectivesStage1() {
   stroke(0);
   strokeWeight(3);
