@@ -38,7 +38,11 @@ function drawStage1() {
       break;
   }
 }
+//------------------------------------------------------------------------------
+//begin objectives
 
+//------------------------------------------------------------------------------
+//Event handlers
 function stage1keyPressed(value) {
   //value is the value of the key pressed
 
@@ -65,24 +69,33 @@ function stage1MouseClicked() {
   //executed when on stage one and the mouse is clicked
 }
 
+function stage1Resized() {
+  //this function allows for the objects to be resized approprialtely
+  textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
+}
+
+//------------------------------------------------------------------------------
+//begin instructions
 function drawStage1Instructions() {
-  noFill();
-  stroke(0);
-  strokeWeight(3);
   var border = 10;
   var width = 500;
   var height = 300;
   var positionX = windowWidth / 2 - width / 2;
   var positionY = windowHeight / 2 - height / 2;
-  rect(positionX, positionY, width, height);
+
+  noFill();
+  stroke(0);
+  strokeWeight(3);
+  rect(positionX, positionY, width, height); //draw the rectangle for the instrudtions
+
   strokeWeight(1); //reset stroke weight to default
   fill(0); //reset fill for text
-
   text(
     "There are 2 objects here, one is a ball (which you will \ncontrol), and another, a target. The goal is to hit the \ntarget with the ball. You will be allowed to change a \nvariety of the ball's properties as the game continues.\n\n\nYour objective and cosntraints are in the top left corner",
     positionX + border,
     positionY + textAscent() + border
   );
+
   stroke(255);
   fill(255);
   text(
@@ -90,9 +103,4 @@ function drawStage1Instructions() {
     positionX + 125,
     positionY + height / 2 + 100
   );
-}
-
-function stage1Resized() {
-  //this function allows for the objects to be resized approprialtely
-  textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
 }
