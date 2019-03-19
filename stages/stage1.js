@@ -9,6 +9,7 @@ function stage1Constructor() {
   isActive = false;
   instructionStage = 0;
   thisBall = new ball(initialPosition, 0, 0);
+  maxInstruction = 3;
 
   //this creates the textBox in the middle of the screen
   //its contents are returned by calling textBox.value()
@@ -43,9 +44,12 @@ function stage1keyPressed(value) {
 
   //console.log(value)
 
-  if (value == 32) {
+  if (value == 32 || instructionStage > maxInstruction) {
     //32 = space
     isActive = !isActive;
+  }
+  if (instructionStage <= maxInstruction) {
+    instructionStage++;
   }
   if (isActive) {
     thisBall.velocity = createVector(1, 0);
@@ -75,4 +79,8 @@ function drawStage1Instructions() {
     positionX + border,
     positionY + textAscent() + border
   );
+}
+
+function stage1Resized() {
+  textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
 }
