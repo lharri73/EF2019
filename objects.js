@@ -21,6 +21,7 @@ class ball {
     this.position = positionVector;
     this.velocity = veolictyVector;
     this.acceleration = accelerationVector;
+    this.isActive = false;
   }
   draw() {
     fill(244, 75, 66); //red color for the ball
@@ -29,7 +30,9 @@ class ball {
     ellipse(this.position.x, this.position.y, 20);
   }
   update() {
-    this.velocity.add(this.acceleration);
-    this.position.add(this.velocity);
+    if (this.isActive) {
+      this.velocity.add(this.acceleration);
+      this.position.add(this.velocity);
+    }
   }
 }
