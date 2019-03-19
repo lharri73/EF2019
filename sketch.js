@@ -16,7 +16,9 @@ function draw() {
   background(135, 206, 250);
 
   //determine what stage we're on
-  switch (stageNumber) {
+    switch (stageNumber)
+    {
+    //Making sure that i can edit.
     case 1:
       //run the constructor for stage one if it hasn't been run
       if (!constructorRun) {
