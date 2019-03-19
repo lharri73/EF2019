@@ -9,7 +9,9 @@ function stage1Constructor() {
 
   targetPosition = createVector(windowWidth - 50, initialPosition.y);
   instructionStage = 0;
+
   thisBall = new ball(initialPosition, createVector(0, 0), createVector(0, 0));
+  thisTarget = new target(targetPosition);
 
   //----------------------------------------------------------------------------
   //this creates the textBox in the middle of the screen
@@ -39,9 +41,12 @@ function drawStage1() {
       drawStage1InstructionsB();
       break;
     default:
-      drawTarget(targetPosition.x, targetPosition.y);
+      thisTarget.draw();
       thisBall.update();
       thisBall.draw();
+      if (isCollided(thisBall, thisTarget)) {
+        incrimentStage();
+      }
       break;
   }
 }

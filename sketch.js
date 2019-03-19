@@ -20,6 +20,10 @@ function setup() {
 
 function draw() {
   background(135, 206, 250);
+  textSize(18);
+  stroke(0);
+  fill(0);
+  text("Stage: " + stageNumber, windowWidth - 85, textAscent() + 10);
 
   //determine what stage we're on
   switch (stageNumber) {
@@ -41,7 +45,7 @@ function draw() {
     */
     default:
       //this isn't a valid stage...reset
-      stageNumber = 1;
+      stageNumber = maxStage;
       constructorRun = false;
       break;
   }
