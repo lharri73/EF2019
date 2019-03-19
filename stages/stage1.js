@@ -27,6 +27,7 @@ function stage1Constructor() {
 function drawStage1() {
   //this is where the code for stage one will live
   //once completed, run function incrimentStage()
+  drawObjectivesStage1();
   switch (instructionStage) {
     case 0:
       drawStage1Instructions();
@@ -40,7 +41,22 @@ function drawStage1() {
 }
 //------------------------------------------------------------------------------
 //begin objectives
+function drawObjectivesStage1() {
+  stroke(0);
+  strokeWeight(3);
+  noFill();
+  rect(0, 0, 200, 75);
 
+  strokeWeight(1);
+  fill(0);
+  textSize(12);
+  text(
+    "Hit the target with velocity of ###INSERT VELOCITY HERE###",
+    10,
+    textAscent() + 10
+  );
+  textSize(20);
+}
 //------------------------------------------------------------------------------
 //Event handlers
 function stage1keyPressed(value) {
