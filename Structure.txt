@@ -17,6 +17,3 @@
       velocity initial (angle, distance x, distance y, acceleration)
       velocity final (initial velocity, angle, distance x, distance y, acceleration)
   4. TBD
-
-test
-asdasd
