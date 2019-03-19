@@ -9,8 +9,10 @@ function stage1Constructor() {
   isActive = false;
   instructionStage = 0;
   thisBall = new ball(initialPosition, 0, 0);
-  maxInstruction = 3;
 
+  maxInstruction = 0;
+
+  //----------------------------------------------------------------------------
   //this creates the textBox in the middle of the screen
   //its contents are returned by calling textBox.value()
   textSize(20); //font size
@@ -29,8 +31,6 @@ function drawStage1() {
     case 0:
       drawStage1Instructions();
       break;
-    case 1:
-      break;
     default:
       drawTarget(targetPosition.x, targetPosition.y);
       thisBall.update();
@@ -48,9 +48,12 @@ function stage1keyPressed(value) {
     //32 = space
     isActive = !isActive;
   }
+
   if (instructionStage <= maxInstruction) {
+    //catch any key and run the function if there is more instructions to show
     instructionStage++;
   }
+
   if (isActive) {
     thisBall.velocity = createVector(1, 0);
   } else {
@@ -74,13 +77,22 @@ function drawStage1Instructions() {
   rect(positionX, positionY, width, height);
   strokeWeight(1); //reset stroke weight to default
   fill(0); //reset fill for text
+
   text(
-    "Hello, this is test Text",
+    "There are 2 objects here, one is a ball (which you will \ncontrol), and another, a target. The goal is to hit the \ntarget with the ball. You will be allowed to change a \nvariety of the ball's properties as the game continues.\n\n\nYour objective and cosntraints are in the top left corner",
     positionX + border,
     positionY + textAscent() + border
+  );
+  stroke(255);
+  fill(255);
+  text(
+    "Press any key to continue",
+    positionX + 125,
+    positionY + height / 2 + 100
   );
 }
 
 function stage1Resized() {
+  //this function allows for the objects to be resized approprialtely
   textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
 }
