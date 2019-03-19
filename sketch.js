@@ -4,6 +4,12 @@ maxStage = 3;
 function windowResized() {
   //this handles the resizing of the window
   resizeCanvas(windowWidth, windowHeight);
+  switch (stageNumber) {
+    case 1:
+      stage1Resized();
+      break;
+    default:
+  }
 }
 
 function setup() {
