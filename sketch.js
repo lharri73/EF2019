@@ -26,7 +26,9 @@ function draw() {
   text("Stage: " + stageNumber, windowWidth - 85, textAscent() + 10);
 
   //determine what stage we're on
-  switch (stageNumber) {
+    switch (stageNumber)
+    {
+    //Making sure that i can edit.
     case 1:
       //run the constructor for stage one if it hasn't been run
       if (!constructorRun) {
