@@ -35,6 +35,12 @@ function drawStage1() {
   drawObjectivesStage1();
   switch (instructionStage) {
     //0 shall be the success instruction
+    case -1:
+      drawMessage(
+        "The ball hit the target with the incorrect velocity\nTry again!",
+        true
+      );
+      break;
     case 0:
       drawMessage("Success!", true);
       break;
@@ -60,6 +66,8 @@ function drawStage1() {
       ) {
         //if they are colided and the magnitude of the velocity is the velocity required:
         instructionStage = 0;
+      } else if (isCollided(thisBall, thisTarget)) {
+        instructionStage = -1; //this shal be the failure state
       }
       break;
   }
@@ -106,6 +114,9 @@ function stage1KeyPressed(value) {
   }
   if (instructionStage == 0) {
     incrimentStage();
+  }
+  if (instructionStage == -1) {
+    resetStage();
   }
 }
 

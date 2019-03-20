@@ -6,12 +6,12 @@ function drawCannon(xPosition, yPosition, angleCCFromHoriz) {}
 class target {
   constructor(positionVector) {
     this.position = positionVector;
-    this.radius = 20;
+    this.radius = 38;
   }
   draw() {
     //TODO: update this to look like a target rather than a circle
     fill(255); //color white
-    ellipse(this.position.x, this.position.y, 50, 100);
+    ellipse(this.position.x, this.position.y, this.radius * 2);
   }
 }
 
@@ -22,13 +22,13 @@ class ball {
     this.acceleration = accelerationVector;
 
     this.isActive = false;
-    this.radius = 20;
+    this.radius = 10;
   }
   draw() {
     fill(244, 75, 66); //red color for the ball
     stroke(0); //sets the outline color to white
     strokeWeight(1); //this is the default stroke weight
-    ellipse(this.position.x, this.position.y, this.radius);
+    ellipse(this.position.x, this.position.y, this.radius * 2);
   }
   update() {
     if (this.isActive) {

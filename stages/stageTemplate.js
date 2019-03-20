@@ -13,6 +13,9 @@ function drawStageNumber() {
   drawObjectivesStageNumber();
 
   switch (instructionStage) {
+    case -1:
+      //failure instruction
+      break;
     case 0:
       //success instruction
       break;

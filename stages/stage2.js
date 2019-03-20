@@ -6,7 +6,7 @@ function stage2Constructor() {
 
   initialPosition = createVector(
     floor(random(10, 50)),
-    random(0, windowHeight)
+    random(100, windowHeight - 100)
   );
 
   targetPosition = createVector(windowWidth - 50, initialPosition.y);
@@ -34,7 +34,11 @@ function stage2Constructor() {
   //random will return numbers between 0 and 2.9999999999, but never 3
 
   stage2Time = roundToFixed(random(3, 10), 1);
-  stage2Disp = roundToFixed(thisBall.position.dist(thisTarget.position), 1);
+  stage2DispA =
+    thisBall.position.dist(thisTarget.position) -
+    thisTarget.radius -
+    thisBall.radius;
+  stage2Disp = roundToFixed(stage2DispA, 1);
   stage2Velocity = roundToFixed(stage2Disp / stage2Time, 2);
 }
 
@@ -51,8 +55,12 @@ function drawStage2() {
   }
 
   switch (instructionStage) {
+    case -1:
+      drawMessage("Nope, that's not correct", true);
+      break;
     case 0:
       //success instruction
+      drawMessage("Success!", true);
       break;
     case 1:
       drawMessage(
@@ -68,7 +76,7 @@ function drawStage2() {
       break;
     case 3:
       drawMessage(
-        "NOTE: always round to 2 decimal places \n(5.3333 -> 5.33, 4 -> 4.00)",
+        "NOTE: always round to 2 decimal places \n(5.3333 -> 5.33, 4 -> 4.00, 123.456789 -> 123.46)",
         true
       );
       break;
@@ -77,7 +85,10 @@ function drawStage2() {
       thisBall.update();
       thisBall.draw();
       if (isCollided(thisBall, thisTarget)) {
+        thisBall.isActive = false;
         clearInterval(timer);
+        timerIsActive = false;
+        instructionStage = 0;
       }
       break;
   }
@@ -137,6 +148,8 @@ function stage2KeyPressed(value) {
               thisBall.isActive = true;
               timerIsActive = true;
               timer = setInterval(incrimentTimer, 10);
+            } else {
+              instructionStage = -1;
             }
             break;
           case 1:
@@ -146,6 +159,8 @@ function stage2KeyPressed(value) {
               thisBall.isActive = true;
               timerIsActive = true;
               timer = setInterval(incrimentTimer, 10);
+            } else {
+              instructionStage = -1;
             }
             break;
           case 2:
@@ -155,12 +170,15 @@ function stage2KeyPressed(value) {
               thisBall.isActive = true;
               timerIsActive = true;
               timer = setInterval(incrimentTimer, 10);
+            } else {
+              instructionStage = -1;
             }
             break;
         }
         break;
       default:
     }
+    return; //don't run the next code
   }
 
   if (instructionStage <= maxInstruction && instructionStage > 0) {
@@ -170,6 +188,11 @@ function stage2KeyPressed(value) {
   if (instructionStage == 0) {
     incrimentStage();
   }
+  console.log("called here");
+  if (instructionStage == -1) {
+    console.log("called");
+    resetStage();
+  }
 }
 
 function stage2MouseClicked() {
@@ -177,8 +200,7 @@ function stage2MouseClicked() {
 }
 
 function stage2Resized() {
-  //called when the window is resized and we're on stage number
-  //allows changing the size of stage-specific objects
+  textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
 }
 
 function drawTimer() {
