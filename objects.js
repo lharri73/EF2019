@@ -6,7 +6,7 @@ function drawCannon(xPosition, yPosition, angleCCFromHoriz) {}
 class target {
   constructor(positionVector) {
     this.position = positionVector;
-    this.radius = 100;
+    this.radius = 20;
   }
   draw() {
     //TODO: update this to look like a target rather than a circle
@@ -32,8 +32,10 @@ class ball {
   }
   update() {
     if (this.isActive) {
-      this.velocity.add(this.acceleration);
-      this.position.add(this.velocity);
+      //offset because this happens every frame, not every second
+      //ever frame is 1/60th of a second
+      this.velocity.add(p5.Vector.div(this.acceleration, 60));
+      this.position.add(p5.Vector.div(this.velocity, 60));
     }
   }
 }

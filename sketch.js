@@ -8,13 +8,20 @@ function windowResized() {
     case 1:
       stage1Resized();
       break;
+    case 2:
+      stage2Resized();
+      break;
     default:
   }
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  //the stage number is initalized to zero in the html file
+  /*the stage number is initalized in the html file to keep it in scope
+   *throughout the files*/
+
+  //NOTE:
+  //When testing a stage, just change the value in the html file
   constructorRun = false;
 }
 
@@ -38,6 +45,11 @@ function draw() {
       drawStage1();
       break;
     case 2:
+      if (!constructorRun) {
+        stage2Constructor();
+        constructorRun = true;
+      }
+      drawStage2();
       break;
     case 3:
       break;
@@ -60,7 +72,10 @@ function incrimentStage() {
   }
 
   stageNumber++;
-  instructionStage = 1;
+  constructorRun = false;
+}
+
+function resetStage() {
   constructorRun = false;
 }
 
@@ -78,10 +93,10 @@ function mouseClicked() {
 function keyPressed() {
   switch (stageNumber) {
     case 1:
-      stage1keyPressed(keyCode);
+      stage1KeyPressed(keyCode);
       break;
     case 2:
-      stage2keyPressed(keyCode);
+      stage2KeyPressed(keyCode);
       break;
   }
 }
