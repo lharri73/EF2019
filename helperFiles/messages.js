@@ -26,3 +26,10 @@ function drawMessage(textForMessage, anyKeyBool = false) {
     );
   }
 }
+
+function drawImage(img, width, height) {
+  var border = 10;
+  var positionX = windowWidth - width;
+  var positionY = windowHeight - height;
+  image(img, positionX, positionY, width, height);
+}
