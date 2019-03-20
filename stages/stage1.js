@@ -105,7 +105,6 @@ function stage1KeyPressed(value) {
     instructionStage++;
   }
   if (instructionStage == 0) {
-    console.log("incrimenting stage");
     incrimentStage();
   }
 }
