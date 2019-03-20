@@ -1,6 +1,6 @@
 function stage1Constructor() {
   //this is run once for the stage to generate constant numbers, get random variables, etc.
-  maxInstruction = 1; //how many instruction pages there are
+  maxInstruction = 2; //how many instruction pages there are
 
   initialPosition = createVector(
     floor(random(10, 50)),
@@ -8,7 +8,7 @@ function stage1Constructor() {
   );
 
   targetPosition = createVector(windowWidth - 50, initialPosition.y);
-  instructionStage = 0;
+  instructionStage = 1;
 
   thisBall = new ball(initialPosition, createVector(0, 0), createVector(0, 0));
   thisTarget = new target(targetPosition);
@@ -34,18 +34,26 @@ function drawStage1() {
   //once completed, run function incrimentStage()
   drawObjectivesStage1();
   switch (instructionStage) {
+    //0 shall be the success instruction
     case 0:
-      drawStage1InstructionsA();
+      drawStage1SuccessInstruction();
       break;
     case 1:
+      drawStage1InstructionsA();
+      break;
+    case 2:
       drawStage1InstructionsB();
       break;
     default:
       thisTarget.draw();
       thisBall.update();
       thisBall.draw();
-      if (isCollided(thisBall, thisTarget)) {
-        incrimentStage();
+      if (
+        isCollided(thisBall, thisTarget) &&
+        thisBall.velocity.mag() == velocityGoal
+      ) {
+        //if they are colided and the magnitude of the velocity is the velocity required:
+        instructionStage = 0;
       }
       break;
   }
@@ -86,9 +94,13 @@ function stage1keyPressed(value) {
     }
   }
 
-  if (instructionStage <= maxInstruction) {
+  if (instructionStage <= maxInstruction && instructionStage > 0) {
     //catch any key and run the function if there is more instructions to show
     instructionStage++;
+  }
+  if (instructionStage == 0) {
+    console.log("incrimenting stage");
+    incrimentStage();
   }
 }
 
@@ -104,59 +116,19 @@ function stage1Resized() {
 //------------------------------------------------------------------------------
 //begin instructions
 function drawStage1InstructionsA() {
-  var border = 10;
-  var width = 500;
-  var height = 300;
-  var positionX = windowWidth / 2 - width / 2;
-  var positionY = windowHeight / 2 - height / 2;
-
-  noFill();
-  stroke(0);
-  strokeWeight(3);
-  rect(positionX, positionY, width, height); //draw the rectangle for the instrudtions
-
-  strokeWeight(1); //reset stroke weight to default
-  fill(0); //reset fill for text
-  text(
+  drawMessage(
     "There are 2 objects here, one is a ball (which you will \ncontrol), and another, a target. The goal is to hit the \ntarget with the ball. You will be allowed to change a \nvariety of the ball's properties as the game continues.\n\n\nYour objective and cosntraints are in the top left corner",
-    positionX + border,
-    positionY + textAscent() + border
-  );
-
-  stroke(255);
-  fill(255);
-  text(
-    "Press any key to continue",
-    positionX + 125,
-    positionY + height / 2 + 100
+    true
   );
 }
 
 function drawStage1InstructionsB() {
-  var border = 10;
-  var width = 500;
-  var height = 300;
-  var positionX = windowWidth / 2 - width / 2;
-  var positionY = windowHeight / 2 - height / 2;
-
-  noFill();
-  stroke(0);
-  strokeWeight(3);
-  rect(positionX, positionY, width, height); //draw the rectangle for the instrudtions
-
-  strokeWeight(1); //reset stroke weight to default
-  fill(0); //reset fill for text
-  text(
+  drawMessage(
     "For this stage, you must hit the target with the velocity \nspecified in the top left. Use the text box to set the \ninitial velocity in the x direction, then press enter.",
-    positionX + border,
-    positionY + textAscent() + border
+    true
   );
+}
 
-  stroke(255);
-  fill(255);
-  text(
-    "Press any key to continue",
-    positionX + 125,
-    positionY + height / 2 + 100
-  );
+function drawStage1SuccessInstruction() {
+  drawMessage("Success!", true);
 }
