@@ -6,7 +6,7 @@ function stage2Constructor() {
 
   initialPosition = createVector(
     floor(random(10, 50)),
-    random(100, windowHeight - 100)
+    random(80, windowHeight - 80)
   );
 
   targetPosition = createVector(windowWidth - 50, initialPosition.y);
@@ -186,11 +186,11 @@ function stage2KeyPressed(value) {
     instructionStage++;
   }
   if (instructionStage == 0) {
+    textBox.remove();
     incrimentStage();
   }
-  console.log("called here");
   if (instructionStage == -1) {
-    console.log("called");
+    textBox.remove();
     resetStage();
   }
 }

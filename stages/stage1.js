@@ -4,7 +4,7 @@ function stage1Constructor() {
 
   initialPosition = createVector(
     floor(random(10, 50)),
-    random(0, windowHeight)
+    random(80, windowHeight - 80)
   );
 
   targetPosition = createVector(windowWidth - 50, initialPosition.y);
@@ -32,7 +32,9 @@ function stage1Constructor() {
 function drawStage1() {
   //this is where the code for stage one will live
   //once completed, run function incrimentStage()
-  drawObjectivesStage1();
+  if (instructionStage > maxInstruction) {
+    drawObjectivesStage1();
+  }
   switch (instructionStage) {
     //0 shall be the success instruction
     case -1:
@@ -46,13 +48,13 @@ function drawStage1() {
       break;
     case 1:
       drawMessage(
-        "There are 2 objects here, one is a ball (which you will \ncontrol), and another, a target. The goal is to hit the \ntarget with the ball. You will be allowed to change a \nvariety of the ball's properties as the game continues.\n\n\nYour objective and cosntraints are in the top left corner",
+        "There are 2 objects here, one is a ball (which you will \ncontrol), and another, a target. The goal is to hit the \ntarget with the ball. You will be allowed to change a \nvariety of the ball's properties as the game continues.\n\n\nYour objective and cosntraints will be in the top left corner",
         true
       );
       break;
     case 2:
       drawMessage(
-        "For this stage, you must hit the target with the velocity \nspecified in the top left. Use the text box to set the \ninitial velocity in the x direction, then press enter.",
+        "For this stage, you must hit the target with the velocity \nspecified in the top left. Use the text box to set the initial \nvelocity in the x direction, then press enter.",
         true
       );
       break;
@@ -113,9 +115,11 @@ function stage1KeyPressed(value) {
     instructionStage++;
   }
   if (instructionStage == 0) {
+    textBox.remove();
     incrimentStage();
   }
   if (instructionStage == -1) {
+    textBox.remove();
     resetStage();
   }
 }
