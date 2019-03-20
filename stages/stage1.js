@@ -80,7 +80,7 @@ function drawObjectivesStage1() {
 }
 //------------------------------------------------------------------------------
 //Event handlers
-function stage1keyPressed(value) {
+function stage1KeyPressed(value) {
   //value is the value of the key pressed
 
   //console.log(value);
