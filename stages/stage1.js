@@ -36,13 +36,19 @@ function drawStage1() {
   switch (instructionStage) {
     //0 shall be the success instruction
     case 0:
-      drawStage1SuccessInstruction();
+      drawMessage("Success!", true);
       break;
     case 1:
-      drawStage1InstructionsA();
+      drawMessage(
+        "There are 2 objects here, one is a ball (which you will \ncontrol), and another, a target. The goal is to hit the \ntarget with the ball. You will be allowed to change a \nvariety of the ball's properties as the game continues.\n\n\nYour objective and cosntraints are in the top left corner",
+        true
+      );
       break;
     case 2:
-      drawStage1InstructionsB();
+      drawMessage(
+        "For this stage, you must hit the target with the velocity \nspecified in the top left. Use the text box to set the \ninitial velocity in the x direction, then press enter.",
+        true
+      );
       break;
     default:
       thisTarget.draw();
@@ -111,24 +117,4 @@ function stage1MouseClicked() {
 function stage1Resized() {
   //this function allows for the objects to be resized approprialtely
   textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
-}
-
-//------------------------------------------------------------------------------
-//begin instructions
-function drawStage1InstructionsA() {
-  drawMessage(
-    "There are 2 objects here, one is a ball (which you will \ncontrol), and another, a target. The goal is to hit the \ntarget with the ball. You will be allowed to change a \nvariety of the ball's properties as the game continues.\n\n\nYour objective and cosntraints are in the top left corner",
-    true
-  );
-}
-
-function drawStage1InstructionsB() {
-  drawMessage(
-    "For this stage, you must hit the target with the velocity \nspecified in the top left. Use the text box to set the \ninitial velocity in the x direction, then press enter.",
-    true
-  );
-}
-
-function drawStage1SuccessInstruction() {
-  drawMessage("Success!", true);
 }
