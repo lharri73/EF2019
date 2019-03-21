@@ -45,6 +45,7 @@ function stage3Constructor() {
   );
 }
 
+//------------------------------------------------------------------------------
 function drawStage3() {
   //the draw function, called every frame
   if (
@@ -109,6 +110,7 @@ function drawObjectivesStage3() {
    */
 }
 
+//------------------------------------------------------------------------------
 function stage3KeyPressed(value) {
   if (instructionStage > maxInstruction) {
     switch (value) {
@@ -182,6 +184,7 @@ function stage3Resized() {
   textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300);
 }
 
+//------------------------------------------------------------------------------
 function drawImageStage3() {
   drawImage(equationImage, 150, 150);
 }
