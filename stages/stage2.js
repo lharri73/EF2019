@@ -33,12 +33,12 @@ function stage2Constructor() {
   versionID = int(random(0, 3)); //will generate a value between 0 and 2
   //random will return numbers between 0 and 2.9999999999, but never 3
 
-  stage2Time = roundToFixed(random(3, 10), 1);
+  stage2Time = roundToFixed(random(3, 10), 2);
   stage2DispA =
     thisBall.position.dist(thisTarget.position) -
     thisTarget.radius -
     thisBall.radius;
-  stage2Disp = roundToFixed(stage2DispA, 1);
+  stage2Disp = roundToFixed(stage2DispA, 2);
   stage2Velocity = roundToFixed(stage2Disp / stage2Time, 2);
 }
 
@@ -64,19 +64,19 @@ function drawStage2() {
       break;
     case 1:
       drawMessage(
-        "In the previous stage, you were given the velocity you \nneeded to hit the target at, and there was no acceleration\naffecting it.",
+        "In the previous stage, you were given the \nvelocity you needed to hit the target at, \nand there was no acceleration affecting it.",
         true
       );
       break;
     case 2:
       drawMessage(
-        "In stage 2, there is not an acceleration, but you will be given \n2 of the following values: distance, velocity, and time.\n\nYou will have to solve for either distance, velocity, or time. ",
+        "In stage 2, there is not an acceleration, \nbut you will be given 2 of the following \nvalues: distance, velocity, and time.\n\nYou will have to solve for either distance, \nvelocity, or time. ",
         true
       );
       break;
     case 3:
       drawMessage(
-        "NOTE: always round to 2 decimal places \n(5.3333 -> 5.33, 4 -> 4.00, 123.456789 -> 123.46)",
+        "NOTE: always round to 2 decimal places \n\t5.3333     -> 5.33, \n\t4          -> 4.00, \n\t123.456789 -> 123.46",
         true
       );
       break;
@@ -176,7 +176,6 @@ function stage2KeyPressed(value) {
             break;
         }
         break;
-      default:
     }
     return; //don't run the next code
   }
@@ -205,8 +204,4 @@ function stage2Resized() {
 
 function drawTimer() {
   text(roundToFixed(timeElapsed, 2), windowWidth / 2, windowHeight / 2);
-}
-
-function incrimentTimer() {
-  timeElapsed += 0.01;
 }

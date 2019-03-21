@@ -1,21 +1,27 @@
 ##Stages:
   1. hit the target with specific velocity given constant, 0 acceleration
     This one, you just input the final velocity since it won't change
-  1. hit the target with specific velocity given constant 0 acceleration
+  2. hit the target with specific velocity given constant 0 acceleration
     solve for:
       time  (distance and acceleration)
       distance  (velocity and time)
       acceleration (given time and distance)
-  2. Hit the target below the starting point given constant y acceleration
+  3. hit the target with a specific constant x-acceleration
+    solve for:
+      time (distance, acceleration, finalVelocity)
+      finalVelocity (distance, time, acceleration)
+      distance (time, finalVelocity, acceleration)
+      acceleration (time, finalVelocity, distance)
+  4. Hit the target below the starting point given constant y acceleration
     solve for:
       final velocity
       initial velocity
       angle
-  3. Trajectory equation
+  5. Trajectory equation
     solve for:
       angle
       distance x (angle, distance y, velocity, acceleration)
       distance y (angle, distance x, velocity, acceleration)
       velocity initial (angle, distance x, distance y, acceleration)
       velocity final (initial velocity, angle, distance x, distance y, acceleration)
-  4. TBD
+  6. TBD

@@ -1,5 +1,7 @@
 //this is used to prevent the game from running a stage that doesn't exist
-maxStage = 3;
+maxStage = 4;
+
+function preload() {}
 
 function windowResized() {
   //this handles the resizing of the window
@@ -24,6 +26,8 @@ function setup() {
 
   //NOTE:
   //When testing a stage, just change the value in the html file
+  textFont("Menlo"); //this font is monospace.
+  //if we need to change the font, we need to readjust each message's \n
   constructorRun = false;
 }
 
@@ -32,7 +36,7 @@ function draw() {
   textSize(18);
   stroke(0);
   fill(0);
-  text("Stage: " + stageNumber, windowWidth - 85, textAscent() + 10);
+  text("Stage: " + stageNumber, windowWidth - 90, textAscent() + 10);
 
   //determine what stage we're on
   switch (stageNumber) {

@@ -5,6 +5,8 @@
 
 function stageNumberConstructor() {
   //The constructor for the stage
+  instructionStage = 0;
+  maxInstruction = 3;
 }
 
 function drawStageNumber() {
@@ -42,6 +44,30 @@ function stageNumberKeyPressed(value) {
    * we can figure out which number each key is by calling
    *console.log(value) and press a key and note the number in the console
    */
+  if (instructionStage > maxInstruction) {
+    switch (value) {
+      case 32: //32 = space
+        thisBall.isActive = !thisBall.isActive;
+        break;
+      case 13:
+        //handle enter
+        break;
+      default:
+    }
+    return;
+  }
+  if (instructionStage <= maxInstruction && instructionStage > 0) {
+    //catch any key and run the function if there is more instructions to show
+    instructionStage++;
+  }
+  if (instructionStage == 0) {
+    textBox.remove();
+    incrimentStage();
+  }
+  if (instructionStage == -1) {
+    textBox.remove();
+    resetStage();
+  }
 }
 
 function stageNumberMouseClicked() {
@@ -51,4 +77,5 @@ function stageNumberMouseClicked() {
 function stageNumberResized() {
   //called when the window is resized and we're on stage number
   //allows changing the size of stage-specific objects
+  textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
 }

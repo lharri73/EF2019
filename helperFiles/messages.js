@@ -21,7 +21,7 @@ function drawMessage(textForMessage, anyKeyBool = false) {
     fill(255);
     text(
       "Press any key to continue",
-      positionX + 125,
+      positionX + 105,
       positionY + height / 2 + 100
     );
   }
@@ -32,4 +32,8 @@ function drawImage(img, width, height) {
   var positionX = windowWidth - width;
   var positionY = windowHeight - height;
   image(img, positionX, positionY, width, height);
+}
+
+function incrimentTimer() {
+  timeElapsed += 0.01;
 }
