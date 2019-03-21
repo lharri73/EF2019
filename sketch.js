@@ -15,6 +15,10 @@ function windowResized() {
       break;
     case 3:
       stage3Resized();
+      break;
+    case 4:
+      stagr4Resized();
+      break;
     default:
   }
 }
@@ -64,6 +68,13 @@ function draw() {
       }
       drawStage3();
       break;
+    case 4:
+      if (!constructorRun) {
+        stage4Constructor();
+        constructorRun = true;
+      }
+      drawStage4();
+      break;
     /*
         ...
     */
@@ -101,6 +112,9 @@ function mouseClicked() {
     case 3:
       stage3MouseClicked();
       break;
+    case 4:
+      stage4MouseClicked();
+      break;
   }
 }
 
@@ -114,6 +128,9 @@ function keyPressed() {
       break;
     case 3:
       stage3KeyPressed(keyCode);
+      break;
+    case 4:
+      stage4KeyPressed(keyCode);
       break;
   }
 }

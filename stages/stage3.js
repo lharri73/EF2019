@@ -193,7 +193,7 @@ function drawObjectivesStage3() {
   stroke(0);
   strokeWeight(3);
   noFill();
-  rect(0, 0, 225, 75);
+  rect(0, 0, 225, 90);
   strokeWeight(1);
   fill(0);
   textSize(12);
@@ -213,6 +213,7 @@ function drawObjectivesStage3() {
         textAscent() * 3 + 20
       );
       text("Final Velocity : " + stage3Vel + "m/s", 10, textAscent() * 4 + 25);
+      text("Init. Velocity : 0m/s", 10, textAscent() * 5 + 30);
       break;
     case 1:
       text("Displacement   : " + stage3Disp + "m", 10, textAscent() + 10);
@@ -223,6 +224,7 @@ function drawObjectivesStage3() {
         textAscent() * 3 + 20
       );
       text("Final Velocity : ?", 10, textAscent() * 4 + 25);
+      text("Init. Velocity : 0m/s", 10, textAscent() * 5 + 30);
       break;
     case 2:
       text("Displacement   : ?", 10, textAscent() + 10);
@@ -233,12 +235,14 @@ function drawObjectivesStage3() {
         textAscent() * 3 + 20
       );
       text("Final Velocity : " + stage3Vel + "m/s", 10, textAscent() * 4 + 25);
+      text("Init. Velocity : 0m/s", 10, textAscent() * 5 + 30);
       break;
     case 3:
       text("Displacement   : " + stage3Disp + "m", 10, textAscent() + 10);
       text("Time           : " + stage3Time + "s", 10, textAscent() * 2 + 15);
       text("+x Acceleration: ?", 10, textAscent() * 3 + 20);
       text("Final Velocity : " + stage3Vel + "m/s", 10, textAscent() * 4 + 25);
+      text("Init. Velocity : 0m/s", 10, textAscent() * 5 + 30);
       break;
   }
 }
