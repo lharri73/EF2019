@@ -9,6 +9,7 @@ function stage3Constructor() {
     random(80, windowHeight - 80)
   );
 
+  //TODO: make sure the target doesn't cover the image (check ambiguously)
   targetPosition = createVector(windowWidth - 50, initialPosition.y);
 
   thisBall = new ball(initialPosition, createVector(0, 0), createVector(0, 0));

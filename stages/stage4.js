@@ -11,6 +11,8 @@ function stage4Constructor() {
   do {
     randomValue = random(0, windowHeight - 80);
   } while (randomValue < ballPosition.y);
+
+  //TODO: make sure the target doesn't cover the image (check ambiguously)
   targetPosition = createVector(windowWidth - 50, randomValue);
 
   thisTarget = new target(targetPosition, 19);
@@ -54,10 +56,10 @@ function stage4LoopAndCheck() {
   thisTarget.draw();
   if (isCollided(thisBall, thisTarget)) {
     thisBall.isActive = false;
-    instructionStage = 0;
+    instructionStage = 1;
   }
   if (outOfBounds(thisBall)) {
-    instructionStage = -1;
+    instructionStage = 0;
   }
 }
 
