@@ -1,7 +1,7 @@
 function stage2Constructor() {
   //The constructor for the stage
-  instructionStage = 1;
-  maxInstruction = 3;
+  instructionStage = 2;
+  maxInstruction = instructions[stageNumber].length;
   equationImage = loadImage("images/velocity_eqn.jpg");
 
   initialPosition = createVector(
@@ -45,52 +45,30 @@ function stage2Constructor() {
 function drawStage2() {
   //the draw function, called every frame
 
-  if (instructionStage > maxInstruction) {
-    drawObjectivesStage2();
-    drawImageStage2();
+  if (instructionStage >= instructions[stageNumber].length) {
+    stage2LoopAndCheck();
+  }
+
+  if (instructionStage < maxInstruction) {
+    drawMessage(instructions[stageNumber][instructionStage], true);
   }
 
   if (timerIsActive) {
     drawTimer();
   }
 
-  switch (instructionStage) {
-    case -1:
-      drawMessage("Nope, that's not correct", true);
-      break;
-    case 0:
-      //success instruction
-      drawMessage("Success!", true);
-      break;
-    case 1:
-      drawMessage(
-        "In the previous stage, you were given the \nvelocity you needed to hit the target at, \nand there was no acceleration affecting it.",
-        true
-      );
-      break;
-    case 2:
-      drawMessage(
-        "In stage 2, there is not an acceleration, \nbut you will be given 2 of the following \nvalues: distance, velocity, and time.\n\nYou will have to solve for either distance, \nvelocity, or time. ",
-        true
-      );
-      break;
-    case 3:
-      drawMessage(
-        "Note: always round to 2 decimal places \n\t5.3333     -> 5.33, \n\t4          -> 4.00, \n\t123.456789 -> 123.46",
-        true
-      );
-      break;
-    default:
-      thisTarget.draw();
-      thisBall.update();
-      thisBall.draw();
-      if (isCollided(thisBall, thisTarget)) {
-        thisBall.isActive = false;
-        clearInterval(timer);
-        timerIsActive = false;
-        instructionStage = 0;
-      }
-      break;
+  function stage2LoopAndCheck() {
+    drawObjectivesStage2();
+    drawImageStage2();
+    thisTarget.draw();
+    thisBall.update();
+    thisBall.draw();
+    if (isCollided(thisBall, thisTarget)) {
+      thisBall.isActive = false;
+      clearInterval(timer);
+      timerIsActive = false;
+      instructionStage = 1;
+    }
   }
 }
 
@@ -149,7 +127,7 @@ function stage2KeyPressed(value) {
               timerIsActive = true;
               timer = setInterval(incrimentTimer, 10);
             } else {
-              instructionStage = -1;
+              instructionStage = 0;
             }
             break;
           case 1:
@@ -160,7 +138,7 @@ function stage2KeyPressed(value) {
               timerIsActive = true;
               timer = setInterval(incrimentTimer, 10);
             } else {
-              instructionStage = -1;
+              instructionStage = 0;
             }
             break;
           case 2:
@@ -171,7 +149,7 @@ function stage2KeyPressed(value) {
               timerIsActive = true;
               timer = setInterval(incrimentTimer, 10);
             } else {
-              instructionStage = -1;
+              instructionStage = 0;
             }
             break;
         }
@@ -180,15 +158,15 @@ function stage2KeyPressed(value) {
     return; //don't run the next code
   }
 
-  if (instructionStage <= maxInstruction && instructionStage > 0) {
+  if (instructionStage <= maxInstruction && instructionStage > 1) {
     //catch any key and run the function if there is more instructions to show
     instructionStage++;
   }
-  if (instructionStage == 0) {
+  if (instructionStage == 1) {
     textBox.remove();
     incrimentStage();
   }
-  if (instructionStage == -1) {
+  if (instructionStage == 0) {
     textBox.remove();
     resetStage();
   }

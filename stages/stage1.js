@@ -1,6 +1,6 @@
 function stage1Constructor() {
   //this is run once for the stage to generate constant numbers, get random variables, etc.
-  maxInstruction = 2; //how many instruction pages there are
+  maxInstruction = instructions[stageNumber].length; //how many instruction pages there are
 
   initialPosition = createVector(
     floor(random(10, 50)),
@@ -8,7 +8,7 @@ function stage1Constructor() {
   );
 
   targetPosition = createVector(windowWidth - 50, initialPosition.y);
-  instructionStage = 1;
+  instructionStage = 2;
 
   thisBall = new ball(initialPosition, createVector(0, 0), createVector(0, 0));
   thisTarget = new target(targetPosition);
@@ -32,47 +32,28 @@ function stage1Constructor() {
 function drawStage1() {
   //this is where the code for stage one will live
   //once completed, run function incrimentStage()
-  if (instructionStage > maxInstruction) {
-    drawObjectivesStage1();
+  if (instructionStage >= instructions[stageNumber].length) {
+    stage1LoopAndCheck();
   }
-  switch (instructionStage) {
-    //0 shall be the success instruction
 
-    case -1:
-      drawMessage(
-        "The ball hit the target with the \nincorrect velocity\n\nTry again!",
-        true
-      );
-      break;
-    case 0:
-      drawMessage("Success!", true);
-      break;
-    case 1:
-      drawMessage(
-        "There are 2 objects here, one is a ball \n(which you will control), and another, a \ntarget. The goal is to hit the target with \nthe ball. You will be allowed to change a \nvariety of the ball's properties as the game \ncontinues.\n\nYour objective and cosntraints will be in \nthe top left corner",
-        true
-      );
-      break;
-    case 2:
-      drawMessage(
-        "For this stage, you must hit the target with \nthe velocity specified in the top left. Use \nthe text box to set the initial velocity in \nthe x direction, then press enter.",
-        true
-      );
-      break;
-    default:
-      thisTarget.draw();
-      thisBall.update();
-      thisBall.draw();
-      if (
-        isCollided(thisBall, thisTarget) &&
-        thisBall.velocity.mag() == velocityGoal
-      ) {
-        //if they are colided and the magnitude of the velocity is the velocity required:
-        instructionStage = 0;
-      } else if (isCollided(thisBall, thisTarget)) {
-        instructionStage = -1; //this shal be the failure state
-      }
-      break;
+  if (instructionStage < maxInstruction) {
+    drawMessage(instructions[stageNumber][instructionStage], true);
+  }
+}
+
+function stage1LoopAndCheck() {
+  drawObjectivesStage1();
+  thisTarget.draw();
+  thisBall.update();
+  thisBall.draw();
+  if (
+    isCollided(thisBall, thisTarget) &&
+    thisBall.velocity.mag() == velocityGoal
+  ) {
+    //if they are colided and the magnitude of the velocity is the velocity required:
+    instructionStage = 1;
+  } else if (isCollided(thisBall, thisTarget)) {
+    instructionStage = 0; //this shal be the failure state
   }
 }
 //------------------------------------------------------------------------------
@@ -111,15 +92,15 @@ function stage1KeyPressed(value) {
     }
   }
 
-  if (instructionStage <= maxInstruction && instructionStage > 0) {
+  if (instructionStage <= maxInstruction && instructionStage > 1) {
     //catch any key and run the function if there is more instructions to show
     instructionStage++;
   }
-  if (instructionStage == 0) {
+  if (instructionStage == 1) {
     textBox.remove();
     incrimentStage();
   }
-  if (instructionStage == -1) {
+  if (instructionStage == 0) {
     textBox.remove();
     resetStage();
   }

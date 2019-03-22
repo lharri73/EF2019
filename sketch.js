@@ -1,8 +1,36 @@
 //this is used to prevent the game from running a stage that doesn't exist
 maxStage = 5;
+instructions = []; //creates a global variable
 
 function preload() {
   //load font here if not websafe
+  importedInstructions = loadStrings("instructions.txt", stringsLoaded);
+  /*loadStrings is an async function, however it will be complete
+   *because preload includes an await at the end*/
+}
+
+function stringsLoaded() {
+  //this is an async function
+  let currentArray = [];
+  let currentStage = 1;
+  console.log(importedInstructions[0] == String("//" + currentStage));
+  for (i = 0; i < importedInstructions.length; i++) {
+    if (importedInstructions[i] == String("//" + currentStage)) {
+      instructions.push(currentArray);
+      //beginning of new stage's instructions
+      currentArray = [];
+    } else if (importedInstructions[i].includes("//")) {
+      currentStage++;
+      i--;
+      continue;
+    } else if (importedInstructions[i].includes("##")) {
+      //this is a comment
+      continue;
+    } else {
+      currentArray.push(importedInstructions[i]);
+    }
+  }
+  console.log(instructions);
 }
 
 function windowResized() {

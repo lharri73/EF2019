@@ -5,31 +5,26 @@
 
 function stageNumberConstructor() {
   //The constructor for the stage
-  instructionStage = 0;
-  maxInstruction = 3;
+  instructionStage = 2;
+  maxInstruction = instructions[stageNumber].length;
 }
 
 function drawStageNumber() {
   //the draw function, called every frame
 
-  drawObjectivesStageNumber();
-
-  switch (instructionStage) {
-    case -1:
-      //failure instruction
-      break;
-    case 0:
-      //success instruction
-      break;
-    case 1:
-      //first instruction shown to user when entering this stage
-      break;
-    /*
-      ...
-      */
-    default:
-      break;
+  //determines if the game loop should be run, or if the instructions should be shown
+  if (instructionStage >= instructions[stageNumber].length) {
+    stageNumberLoopAndCheck();
   }
+  //TODO:change to else if ???
+  if (instructionStage < maxInstruction) {
+    drawMessage(instructions[stageNumber][instructionStage], true);
+  }
+}
+
+//this is the actual game loop, run if there are no instructions to show
+function stageNumberLoopAndCheck() {
+  drawObjectivesStageNumber();
 }
 
 function drawObjectivesStageNumber() {
@@ -56,15 +51,15 @@ function stageNumberKeyPressed(value) {
     }
     return;
   }
-  if (instructionStage <= maxInstruction && instructionStage > 0) {
+  if (instructionStage <= maxInstruction && instructionStage > 1) {
     //catch any key and run the function if there is more instructions to show
     instructionStage++;
   }
-  if (instructionStage == 0) {
+  if (instructionStage == 1) {
     textBox.remove();
     incrimentStage();
   }
-  if (instructionStage == -1) {
+  if (instructionStage == 0) {
     textBox.remove();
     resetStage();
   }
