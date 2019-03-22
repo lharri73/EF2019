@@ -76,7 +76,7 @@ function drawStage2() {
       break;
     case 3:
       drawMessage(
-        "NOTE: always round to 2 decimal places \n\t5.3333     -> 5.33, \n\t4          -> 4.00, \n\t123.456789 -> 123.46",
+        "Note: always round to 2 decimal places \n\t5.3333     -> 5.33, \n\t4          -> 4.00, \n\t123.456789 -> 123.46",
         true
       );
       break;

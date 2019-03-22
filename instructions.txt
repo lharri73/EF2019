@@ -1,0 +1,5 @@
+//1
+The ball hit the target with the \nincorrect velocity\n\nTry again!
+Success!
+There are 2 objects here, one is a ball \n(which you will control), and another, a \ntarget. The goal is to hit the target with \nthe ball. You will be allowed to change a \nvariety of the ball's properties as the game \ncontinues.\n\nYour objective and cosntraints will be in \nthe top left corner
+For this stage, you must hit the target with \nthe velocity specified in the top left. Use \nthe text box to set the initial velocity in \nthe x direction, then press enter.

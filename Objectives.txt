@@ -1,3 +1,5 @@
+//TODO: move all of the instructions to a text file and load into an array at setup, then reference this array
+
 ##Stages:
   1. hit the target with specific velocity given constant, 0 acceleration
     This one, you just input the final velocity since it won't change
@@ -5,7 +7,8 @@
     solve for:
       time  (distance and acceleration)
       distance  (velocity and time)
-      acceleration (given time and distance)
+      acceleration (given time and distance
+  //IDEA: describe the derivation of these equations in the description, either in text or in images (for symbols)
   3. hit the target with a specific constant x-acceleration
     solve for:
       time (distance, acceleration, finalVelocity)
@@ -17,6 +20,9 @@
       final velocity
       initial velocity
       angle
+  5. Two dimensional acceleration
+  6. Two dimensional acceleration given angles of acceleration
+      (this is just another step to calculate)
   5. Trajectory equation
     solve for:
       angle

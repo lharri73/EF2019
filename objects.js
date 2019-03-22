@@ -1,6 +1,5 @@
 //these functions will be called to generate the graphic
 
-//TODO replace all of the x and y positions with vectors
 function drawCannon(xPosition, yPosition, angleCCFromHoriz) {}
 
 class target {

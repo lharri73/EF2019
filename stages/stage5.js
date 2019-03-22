@@ -1,8 +1,3 @@
-/*This is simply a template for the stages, these will not actually be run
- *Just copy and paste to whatever stage you're working on and replace every
- *occurance of "5" with the stage 5 you're working on
- */
-
 function stage5Constructor() {
   //The constructor for the stage
   instructionStage = 0;
@@ -23,7 +18,16 @@ function drawStage5() {
       break;
     case 1:
       //first instruction shown to user when entering this stage
+      drawMessage(
+        "You have successfully mastered hitting the target with single dimensional acceleration",
+        true
+      );
       break;
+    case 2:
+      drawMessage(
+        "Now, you have been moved to a strange planet, where the gravity is not as...normal. Gravity, in this case, works in two dimensions",
+        true
+      );
     /*
       ...
       */

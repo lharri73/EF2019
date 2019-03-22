@@ -68,7 +68,7 @@ function drawStage4() {
       break;
     case 3:
       drawMessage(
-        "NOTE: Don't assume you're on earth...\nGravity can (and does) change!",
+        "Note: Don't assume you're on earth...\nGravity can (and does) change!",
         true
       );
       break;

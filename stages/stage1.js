@@ -37,6 +37,7 @@ function drawStage1() {
   }
   switch (instructionStage) {
     //0 shall be the success instruction
+
     case -1:
       drawMessage(
         "The ball hit the target with the \nincorrect velocity\n\nTry again!",

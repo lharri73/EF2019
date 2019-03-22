@@ -1,7 +1,9 @@
 //this is used to prevent the game from running a stage that doesn't exist
 maxStage = 5;
 
-function preload() {}
+function preload() {
+  //load font here if not websafe
+}
 
 function windowResized() {
   //this handles the resizing of the window
@@ -31,8 +33,7 @@ function setup() {
   /*the stage number is initalized in the html file to keep it in scope
    *throughout the files*/
 
-  //NOTE:
-  //When testing a stage, just change the value in the html file
+  //NOTE: When testing a stage, just change the value in the html file
   textFont("Menlo"); //this font is monospace.
   //if we need to change the font, we need to readjust each message's \n
   constructorRun = false;
@@ -88,8 +89,8 @@ function draw() {
         ...
     */
     default:
-      //this isn't a valid stage...reset
-      stageNumber = maxStage;
+      //this isn't a valid stage...reset to 1
+      stageNumber = 1;
       constructorRun = false;
       break;
   }
@@ -111,6 +112,7 @@ function resetStage() {
 }
 
 function mouseClicked() {
+  //TODO: I'm thinking we don't need these...
   switch (stageNumber) {
     case 1:
       stage1MouseClicked();
