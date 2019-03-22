@@ -1,5 +1,5 @@
 //this is used to prevent the game from running a stage that doesn't exist
-maxStage = 4;
+maxStage = 5;
 
 function preload() {}
 
@@ -17,7 +17,7 @@ function windowResized() {
       stage3Resized();
       break;
     case 4:
-      stagr4Resized();
+      stage4Resized();
       break;
     default:
   }

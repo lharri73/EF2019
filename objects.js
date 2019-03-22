@@ -4,9 +4,9 @@
 function drawCannon(xPosition, yPosition, angleCCFromHoriz) {}
 
 class target {
-  constructor(positionVector) {
+  constructor(positionVector, radius = 38) {
     this.position = positionVector;
-    this.radius = 38;
+    this.radius = radius;
   }
   draw() {
     //TODO: update this to look like a target rather than a circle
@@ -37,5 +37,8 @@ class ball {
       this.velocity.add(p5.Vector.div(this.acceleration, 60));
       this.position.add(p5.Vector.div(this.velocity, 60));
     }
+  }
+  changeVelocity(newVelocity) {
+    this.velocity = newVelocity;
   }
 }
