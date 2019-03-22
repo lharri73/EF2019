@@ -63,7 +63,7 @@ function drawStage3() {
   switch (instructionStage) {
     case -1:
       //failure instruction
-      drawMessage(":-(\n" + enteredValue + " is not correct", true);
+      drawMessage(":-(\ntry again", true);
       break;
     case 0:
       //success instruction

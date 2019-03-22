@@ -3,3 +3,23 @@ The ball hit the target with the \nincorrect velocity\n\nTry again!
 Success!
 There are 2 objects here, one is a ball \n(which you will control), and another, a \ntarget. The goal is to hit the target with \nthe ball. You will be allowed to change a \nvariety of the ball's properties as the game \ncontinues.\n\nYour objective and cosntraints will be in \nthe top left corner
 For this stage, you must hit the target with \nthe velocity specified in the top left. Use \nthe text box to set the initial velocity in \nthe x direction, then press enter.
+//2
+Nope, that's not correct
+Success!
+In the previous stage, you were given the \nvelocity you needed to hit the target at, \nand there was no acceleration affecting it.
+In stage 2, there is not an acceleration, \nbut you will be given 2 of the following \nvalues: distance, velocity, and time.\n\nYou will have to solve for either distance, \nvelocity, or time.
+Note: always round to 2 decimal places \n\t5.3333     -> 5.33, \n\t4          -> 4.00, \n\t123.456789 -> 123.46
+//3
+:-(\ntry again
+Success!
+Previously, you haven't had to worry about \nany acceleration or changing the velocity. \nThat is no longer the case.
+In this stage, we begin to deal with gravity.\nTypically, gravity works in the Y direction, \nbut in this stage, it works in the \n+x direction.
+For this stage, you will be given 3 of \nthe following: \ntime, distance, acceleration, final velocity\n\nYou will have to solve for one of \nthese values
+//4
+You've fallen out of the game's bounds.
+Success!
+In stage 4 you begin to experience gravity \nas it is on earth: In the -y direction.
+In this stage, you will be at a location \nhigher than the target. You will have to \nenter the velocity that cause the ball to \nhit the target.
+Note: Don't assume you're on earth...\nGravity can (and does) change!
+Oh, and the target is smaller :-)
+//5
