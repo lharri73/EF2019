@@ -1,39 +1,33 @@
+/*This is simply a template for the stages, these will not actually be run
+ *Just copy and paste to whatever stage you're working on and replace every
+ *occurance of "Number" with the stage Number you're working on
+ */
+
 function stage5Constructor() {
   //The constructor for the stage
-  instructionStage = 0;
-  maxInstruction = 3;
+  instructionStage = 2;
+  maxInstruction = instructions[stageNumber].length;
+  //TODO: find new color cause this is garbage.
+  //looking for a mars-like color
+  newBackgroundColor = color("#68001e");
 }
 
 function drawStage5() {
   //the draw function, called every frame
 
-  drawObjectivesStage5();
-
-  switch (instructionStage) {
-    case -1:
-      //failure instruction
-      break;
-    case 0:
-      //success instruction
-      break;
-    case 1:
-      //first instruction shown to user when entering this stage
-      drawMessage(
-        "You have successfully mastered hitting the target with single dimensional acceleration",
-        true
-      );
-      break;
-    case 2:
-      drawMessage(
-        "Now, you have been moved to a strange planet, where the gravity is not as...normal. Gravity, in this case, works in two dimensions",
-        true
-      );
-    /*
-      ...
-      */
-    default:
-      break;
+  //determines if the game loop should be run, or if the instructions should be shown
+  if (instructionStage >= instructions[stageNumber].length) {
+    stage5LoopAndCheck();
   }
+  //TODO:change to else if ???
+  if (instructionStage < maxInstruction) {
+    drawMessage(instructions[stageNumber][instructionStage], true);
+  }
+}
+
+//this is the actual game loop, run if there are no instructions to show
+function stage5LoopAndCheck() {
+  drawObjectivesStage5();
 }
 
 function drawObjectivesStage5() {
@@ -60,15 +54,15 @@ function stage5KeyPressed(value) {
     }
     return;
   }
-  if (instructionStage <= maxInstruction && instructionStage > 0) {
+  if (instructionStage <= maxInstruction && instructionStage > 1) {
     //catch any key and run the function if there is more instructions to show
     instructionStage++;
   }
-  if (instructionStage == 0) {
+  if (instructionStage == 1) {
     textBox.remove();
     incrimentStage();
   }
-  if (instructionStage == -1) {
+  if (instructionStage == 0) {
     textBox.remove();
     resetStage();
   }

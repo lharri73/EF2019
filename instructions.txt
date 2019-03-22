@@ -29,3 +29,8 @@ In this stage, you will be at a location higher than the target. You will have t
 Note: Don't assume you're on earth...Gravity can (and does) change!
 Oh, and the target is smaller :-)
 //5
+Instructins. Line 1
+asdasd
+asdasd
+//6
+###This file must end with the next stage number, even if it doesn't exist

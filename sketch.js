@@ -1,7 +1,9 @@
 //this is used to prevent the game from running a stage that doesn't exist
 maxStage = 5;
 instructions = []; //creates a global variable
-
+//backgroundColor = color(135, 206, 250);
+let backgroundColor;
+let newBackgroundColor;
 function preload() {
   //load font here if not websafe
   importedInstructions = loadStrings("instructions.txt", stringsLoaded);
@@ -13,7 +15,6 @@ function stringsLoaded() {
   //this is an async function
   let currentArray = [];
   let currentStage = 1;
-  console.log(importedInstructions[0] == String("//" + currentStage));
   for (i = 0; i < importedInstructions.length; i++) {
     if (importedInstructions[i] == String("//" + currentStage)) {
       instructions.push(currentArray);
@@ -30,7 +31,6 @@ function stringsLoaded() {
       currentArray.push(importedInstructions[i]);
     }
   }
-  console.log(instructions);
 }
 
 function windowResized() {
@@ -57,18 +57,24 @@ function windowResized() {
 }
 
 function setup() {
+  backgroundColor = color("#87cefa");
+  newBackgroundColor = color("#87cefa");
   createCanvas(windowWidth, windowHeight);
   /*the stage number is initalized in the html file to keep it in scope
    *throughout the files*/
-
   //NOTE: When testing a stage, just change the value in the html file
   textFont("Menlo"); //this font is monospace.
   //if we need to change the font, we need to readjust each message's \n
   constructorRun = false;
+  amt = 0.1;
 }
 
 function draw() {
-  background(135, 206, 250);
+  if (backgroundColor.toString() != newBackgroundColor.toString()) {
+    fadeColor(backgroundColor, newBackgroundColor, amt);
+    return;
+  }
+  background(backgroundColor);
   textSize(18);
   stroke(0);
   fill(0);
