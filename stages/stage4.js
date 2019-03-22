@@ -1,7 +1,7 @@
 function stage4Constructor() {
   //The constructor for the stage
-  instructionStage = 1;
-  maxInstruction = 4;
+  instructionStage = 2;
+  maxInstruction = instructions[stageNumber].length;
   equationImage = loadImage("images/acceleration_eqns.jpg");
 
   ballPosition = createVector(
@@ -37,59 +37,27 @@ function stage4Constructor() {
 
 function drawStage4() {
   //the draw function, called every frame
-
-  if (
-    (instructionStage > maxInstruction) |
-    ((instructionStage == 0) | (instructionStage == -1))
-  ) {
-    drawObjectivesStage4();
-    drawImageStage4();
+  if (instructionStage >= instructions[stageNumber].length) {
+    stage4LoopAndCheck();
   }
-  switch (instructionStage) {
-    case -1:
-      //failure instruction
-      drawMessage("You've fallen out of the game's bounds.", true);
-      break;
-    case 0:
-      //success instruction
-      drawMessage("Success", true);
-      break;
-    case 1:
-      drawMessage(
-        "In stage 4 you begin to experience gravity \nas it is on earth: In the -y direction. ",
-        true
-      );
-      break;
-    case 2:
-      drawMessage(
-        "In this stage, you will be at a location \nhigher than the target. You will have to \nenter the velocity that cause the ball to \nhit the target.",
-        true
-      );
-      break;
-    case 3:
-      drawMessage(
-        "Note: Don't assume you're on earth...\nGravity can (and does) change!",
-        true
-      );
-      break;
-    case 4:
-      drawMessage("Oh, and the target is smaller :-)");
-      break;
-    /*
-      ...
-      */
-    default:
-      thisBall.update();
-      thisBall.draw();
-      thisTarget.draw();
-      if (isCollided(thisBall, thisTarget)) {
-        thisBall.isActive = false;
-        instructionStage = 0;
-      }
-      if (outOfBounds(thisBall)) {
-        instructionStage = -1;
-      }
-      break;
+
+  if (instructionStage < maxInstruction) {
+    drawMessage(instructions[stageNumber][instructionStage], true);
+  }
+}
+
+function stage4LoopAndCheck() {
+  drawObjectivesStage4();
+  drawImageStage4();
+  thisBall.update();
+  thisBall.draw();
+  thisTarget.draw();
+  if (isCollided(thisBall, thisTarget)) {
+    thisBall.isActive = false;
+    instructionStage = 0;
+  }
+  if (outOfBounds(thisBall)) {
+    instructionStage = -1;
   }
 }
 
@@ -135,15 +103,15 @@ function stage4KeyPressed(value) {
     }
     return;
   }
-  if (instructionStage <= maxInstruction && instructionStage > 0) {
+  if (instructionStage <= maxInstruction && instructionStage > 1) {
     //catch any key and run the function if there is more instructions to show
     instructionStage++;
   }
-  if (instructionStage == 0) {
+  if (instructionStage == 1) {
     textBox.remove();
     incrimentStage();
   }
-  if (instructionStage == -1) {
+  if (instructionStage == 0) {
     textBox.remove();
     resetStage();
   }

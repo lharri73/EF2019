@@ -23,6 +23,9 @@ function stringsLoaded() {
       currentStage++;
       i--;
       continue;
+    } else if (importedInstructions[i].includes("##")) {
+      //this is a comment
+      continue;
     } else {
       currentArray.push(importedInstructions[i]);
     }

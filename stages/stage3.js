@@ -1,7 +1,7 @@
 function stage3Constructor() {
   //The constructor for the stage
-  instructionStage = 1;
-  maxInstruction = 3;
+  instructionStage = 2;
+  maxInstruction = instructions[stageNumber].length;
   equationImage = loadImage("images/acceleration_eqns.jpg");
 
   initialPosition = createVector(
@@ -48,59 +48,30 @@ function stage3Constructor() {
 //------------------------------------------------------------------------------
 function drawStage3() {
   //the draw function, called every frame
-  if (
-    (instructionStage > maxInstruction) |
-    ((instructionStage == 0) | (instructionStage == -1))
-  ) {
-    drawObjectivesStage3();
-    drawImageStage3();
+  if (instructionStage >= instructions[stageNumber].length) {
+    stage3LoopAndCheck();
+  }
+
+  if (instructionStage < maxInstruction) {
+    drawMessage(instructions[stageNumber][instructionStage], true);
   }
 
   if (timerIsActive) {
     drawCurrentElements3();
   }
+}
 
-  switch (instructionStage) {
-    case -1:
-      //failure instruction
-      drawMessage(":-(\ntry again", true);
-      break;
-    case 0:
-      //success instruction
-      drawMessage("Success!", true);
-      break;
-    case 1:
-      drawMessage(
-        "Previously, you haven't had to worry about \nany acceleration or changing the velocity. \nThat is no longer the case. ",
-        true
-      );
-      break;
-    case 2:
-      drawMessage(
-        "In this stage, we begin to deal with gravity.\nTypically, gravity works in the Y direction, \nbut in this stage, it works in the \n+x direction. ",
-        true
-      );
-      break;
-    case 3:
-      drawMessage(
-        "For this stage, you will be given 3 of \nthe following: \ntime, distance, acceleration, final velocity\n\nYou will have to solve for one of \nthese values",
-        true
-      );
-      break;
-    /*
-      ...
-      */
-    default:
-      thisTarget.draw();
-      thisBall.update();
-      thisBall.draw();
-      if (isCollided(thisBall, thisTarget)) {
-        thisBall.isActive = false;
-        clearInterval(timer);
-        //timerIsActive = false;
-        instructionStage = 0;
-      }
-      break;
+function stage3LoopAndCheck() {
+  drawObjectivesStage3();
+  drawImageStage3();
+  thisTarget.draw();
+  thisBall.update();
+  thisBall.draw();
+  if (isCollided(thisBall, thisTarget)) {
+    thisBall.isActive = false;
+    clearInterval(timer);
+    //timerIsActive = false;
+    instructionStage = 1;
   }
 }
 
@@ -131,28 +102,28 @@ function stage3KeyPressed(value) {
             if (stage3Time == enteredValue) {
               correctAnswer3();
             } else {
-              instructionStage = -1;
+              instructionStage = 0;
             }
             break;
           case 1:
             if (stage3Vel == enteredValue) {
               correctAnswer3();
             } else {
-              instructionStage = -1;
+              instructionStage = 0;
             }
             break;
           case 2:
             if (stage3Disp == enteredValue) {
               correctAnswer3();
             } else {
-              instructionStage = -1;
+              instructionStage = 0;
             }
             break;
           case 3:
             if (stage3Accel == enteredValue) {
               correctAnswer3();
             } else {
-              instructionStage = -1;
+              instructionStage = 0;
             }
             break;
         }
@@ -160,15 +131,15 @@ function stage3KeyPressed(value) {
     }
     return; //return from the keyPressed function
   }
-  if (instructionStage <= maxInstruction && instructionStage > 0) {
+  if (instructionStage <= maxInstruction && instructionStage > 1) {
     //catch any key and run the function if there is more instructions to show
     instructionStage++;
   }
-  if (instructionStage == 0) {
+  if (instructionStage == 1) {
     textBox.remove();
     incrimentStage();
   }
-  if (instructionStage == -1) {
+  if (instructionStage == 0) {
     textBox.remove();
     resetStage();
   }
