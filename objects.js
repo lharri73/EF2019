@@ -42,3 +42,23 @@ class ball {
     this.velocity = newVelocity;
   }
 }
+
+class wall {
+  //type = TOP or BOTTOM
+  //height = distance from edge of screen
+  //position = distance from left side
+  constructor(height, position, type, width = 100) {
+    this.height = height;
+    this.position = position;
+    this.type = type;
+    this.width = width;
+  }
+  draw() {
+    fill(130, 62, 0);
+    if (this.type == TOP) {
+      rect(this.position, 0, this.width, this.height);
+    } else {
+      rect(this.position, windowHeight, this.width, -1 * this.height);
+    }
+  }
+}
