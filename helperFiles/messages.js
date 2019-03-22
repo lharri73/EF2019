@@ -15,7 +15,13 @@ function drawMessage(textForMessage, anyKeyBool = false) {
   strokeWeight(1); //reset stroke weight to default
   fill(0); //reset fill for text
   textSize(18);
-  text(textForMessage, positionX + border, positionY + textAscent() + border);
+  text(
+    textForMessage,
+    positionX + border,
+    positionY + textAscent() + border,
+    width - 2 * border,
+    height - 2 * border
+  );
 
   if (anyKeyBool) {
     stroke(255);
