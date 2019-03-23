@@ -1,5 +1,5 @@
 //this is used to prevent the game from running a stage that doesn't exist
-maxStage = 5;
+maxStage = 6;
 instructions = []; //creates a global variable
 //backgroundColor = color(135, 206, 250);
 let backgroundColor;
@@ -68,6 +68,7 @@ function setup() {
   //if we need to change the font, we need to readjust each message's \n
   constructorRun = false;
   backgroundColorChanged = false; //set this to true when the background color is changed
+  createTextBox = false;
 }
 
 function draw() {
@@ -77,6 +78,7 @@ function draw() {
       return;
     } else {
       backgroundColorChanged = false;
+      createTextBox = true;
     }
   }
   background(backgroundColor);
@@ -126,12 +128,20 @@ function draw() {
       }
       drawStage5();
       break;
+    case 6:
+      if (!constructorRun) {
+        stage6Constructor();
+        constructorRun = true;
+      }
+      drawStage6();
+      break;
     /*
         ...
     */
     default:
       //this isn't a valid stage...reset to 1
       stageNumber = 1;
+      createTextBox = true;
       constructorRun = false;
       break;
   }
@@ -146,10 +156,12 @@ function incrimentStage() {
 
   stageNumber++;
   constructorRun = false;
+  createTextBox = true;
 }
 
 function resetStage() {
   constructorRun = false;
+  createTextBox = true;
 }
 
 function mouseClicked() {
@@ -170,6 +182,9 @@ function mouseClicked() {
     case 5:
       stage5MouseClicked();
       break;
+    case 6:
+      stage6MouseClicked();
+      break;
   }
 }
 
@@ -189,6 +204,9 @@ function keyPressed() {
       break;
     case 5:
       stage5KeyPressed(keyCode);
+      break;
+    case 6:
+      stage6KeyPressed();
       break;
   }
 }

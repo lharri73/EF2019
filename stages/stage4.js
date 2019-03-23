@@ -8,12 +8,11 @@ function stage4Constructor() {
     floor(random(10, 50)),
     random(80, (windowHeight * 2) / 3)
   );
-  do {
-    randomValue = random(0, windowHeight - 80);
-  } while (randomValue < ballPosition.y);
-
-  //TODO: make sure the target doesn't cover the image (check ambiguously)
-  targetPosition = createVector(windowWidth - 50, randomValue);
+  targetPosition = createVector(
+    windowWidth - 50,
+    roundToFixed(random(ballPosition.y + 100, windowHeight - 80)),
+    2
+  );
 
   thisTarget = new target(targetPosition, 19);
   stage4Acceleration = roundToFixed(random(100, 500), 2);
@@ -98,6 +97,7 @@ function stage4KeyPressed(value) {
       case 13:
         //handle enter
         enteredValue = parseFloat(textBox.value());
+        textBox.attribute("hidden", true);
         thisBall.changeVelocity(createVector(enteredValue, 0));
         thisBall.isActive = true;
         break;

@@ -11,13 +11,12 @@ function stage5Constructor() {
     floor(random(10, 50)),
     random(80, (windowHeight * 2) / 3)
   );
-  do {
-    randomValue = random(0, windowHeight - 80);
-  } while (randomValue < ballPosition.y); //TODO: change this so the ball is at least a certain distance alway
-  //if it's not, then the ball goes off the screen before it colides.
 
   //TODO: make sure the target doesn't cover the image (check ambiguously)
-  targetPosition = createVector(windowWidth - 50, randomValue);
+  targetPosition = createVector(
+    windowWidth - 50,
+    random(ballPosition.y + 100, windowHeight - 80)
+  );
 
   thisTarget = new target(targetPosition, 19);
   stage5YAcceleration = roundToFixed(random(100, 500), 2);
@@ -36,17 +35,21 @@ function stage5Constructor() {
     2
   );
   //^^I think this is right.
-  textSize(20); //font size
-  textBox = createInput();
-  textBox.style("color", "#ffffff"); //text color
-  textBox.style("background-color", newBackgroundColor.toString()); //background color
-  textBox.style("border", "2px solid #ffffff"); //border styling
-  textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
-  textBox.size(300, textAscent()); //size of the textbox
 }
 
 function drawStage5() {
   //the draw function, called every frame
+
+  if (createTextBox) {
+    textSize(20); //font size
+    textBox = createInput();
+    textBox.style("color", "#ffffff"); //text color
+    textBox.style("background-color", newBackgroundColor.toString()); //background color
+    textBox.style("border", "2px solid #ffffff"); //border styling
+    textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
+    textBox.size(300, textAscent()); //size of the textbox
+    createTextBox = false;
+  }
 
   //determines if the game loop should be run, or if the instructions should be shown
   if (instructionStage >= maxInstruction) {
@@ -111,6 +114,7 @@ function stage5KeyPressed(value) {
       case 13:
         //handle enter
         enteredValue = parseFloat(textBox.value());
+        textBox.attribute("hidden", true);
         thisBall.changeVelocity(createVector(enteredValue, 0));
         thisBall.isActive = true;
         break;
