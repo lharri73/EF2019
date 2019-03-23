@@ -67,14 +67,20 @@ function setup() {
   //if we need to change the font, we need to readjust each message's \n
   constructorRun = false;
   amt = 0.1;
+  backgroundColorChanged = false; //set this to true when the background color is changed
 }
 
 function draw() {
-  if (backgroundColor.toString() != newBackgroundColor.toString()) {
-    fadeColor(backgroundColor, newBackgroundColor, amt);
-    return;
+  if (backgroundColorChanged) {
+    if (backgroundColor.toString() != newBackgroundColor.toString()) {
+      fadeColor(backgroundColor, newBackgroundColor, amt);
+      return;
+    } else {
+      backgroundColorChanged = false;
+    }
   }
   background(backgroundColor);
+  drawBackgroundObjects(); //this is where clouds are drawn
   textSize(18);
   stroke(0);
   fill(0);
@@ -184,4 +190,8 @@ function keyPressed() {
       stage5KeyPressed(keyCode);
       break;
   }
+}
+
+function drawBackgroundObjects() {
+  //TODO: impliment inclusion of clouds
 }

@@ -61,3 +61,8 @@ class wall {
     }
   }
 }
+
+class cloud {
+  constructor() {}
+  draw() {}
+}
