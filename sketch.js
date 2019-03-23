@@ -21,11 +21,11 @@ function stringsLoaded() {
       instructions.push(currentArray);
       //beginning of new stage's instructions
       currentArray = [];
-    } else if (importedInstructions[i].includes("//")) {
+    } else if (importedInstructions[i].startsWith("//")) {
       currentStage++;
       i--;
       continue;
-    } else if (importedInstructions[i].includes("##")) {
+    } else if (importedInstructions[i].startsWith("##")) {
       //this is a comment
       continue;
     } else {

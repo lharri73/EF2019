@@ -1,6 +1,4 @@
-##Comments must have two '##' (Don't include '##' in an instruction or it will be ignored)
-##TODO: Fix this (Sketch.js:14-34) (or nah, yknow. it's fine)
-##stage number with the two forward slashes
+## //stageNumber
 ## the failure message is always first
 ## followed by the success message
 ## then the first instruction

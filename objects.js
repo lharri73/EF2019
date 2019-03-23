@@ -24,6 +24,7 @@ class ball {
     this.radius = 10;
   }
   draw() {
+    //TODO: make this draw dots along its path so we can see how the velocity changes
     fill(244, 75, 66); //red color for the ball
     stroke(0); //sets the outline color to white
     strokeWeight(1); //this is the default stroke weight
