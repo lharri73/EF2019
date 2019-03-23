@@ -4,6 +4,7 @@ instructions = []; //creates a global variable
 //backgroundColor = color(135, 206, 250);
 let backgroundColor;
 let newBackgroundColor;
+let amt = 0.01;
 function preload() {
   //load font here if not websafe
   importedInstructions = loadStrings("instructions.txt", stringsLoaded);
@@ -66,7 +67,6 @@ function setup() {
   textFont("Menlo"); //this font is monospace.
   //if we need to change the font, we need to readjust each message's \n
   constructorRun = false;
-  amt = 0.1;
   backgroundColorChanged = false; //set this to true when the background color is changed
 }
 
@@ -124,6 +124,7 @@ function draw() {
         stage5Constructor();
         constructorRun = true;
       }
+      drawStage5();
       break;
     /*
         ...

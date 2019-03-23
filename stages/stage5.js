@@ -1,22 +1,55 @@
-/*This is simply a template for the stages, these will not actually be run
- *Just copy and paste to whatever stage you're working on and replace every
- *occurance of "Number" with the stage Number you're working on
- */
-
 function stage5Constructor() {
   //The constructor for the stage
   instructionStage = 2;
   maxInstruction = instructions[stageNumber].length;
+  equationImage = loadImage("images/acceleration_eqns.jpg");
   //TODO: find new color cause this is garbage.
   //looking for a mars-like color
-  newBackgroundColor = color("#68001e");
+  newBackgroundColor = color("#c1440e");
+  backgroundColorChanged = true;
+  ballPosition = createVector(
+    floor(random(10, 50)),
+    random(80, (windowHeight * 2) / 3)
+  );
+  do {
+    randomValue = random(0, windowHeight - 80);
+  } while (randomValue < ballPosition.y); //TODO: change this so the ball is at least a certain distance alway
+  //if it's not, then the ball goes off the screen before it colides.
+
+  //TODO: make sure the target doesn't cover the image (check ambiguously)
+  targetPosition = createVector(windowWidth - 50, randomValue);
+
+  thisTarget = new target(targetPosition, 19);
+  stage5YAcceleration = roundToFixed(random(100, 500), 2);
+  stage5XAcceleration = roundToFixed(random(100, 500), 2);
+  thisBall = new ball(
+    ballPosition,
+    createVector(0, 0),
+    createVector(stage5XAcceleration, stage5YAcceleration)
+  );
+  stage5VerDisp = roundToFixed(targetPosition.y - ballPosition.y, 2);
+  stage5HorDisp = roundToFixed(targetPosition.x - ballPosition.x, 2);
+  stage5Time = sqrt((2 * stage5VerDisp) / stage5YAcceleration);
+  stage5InitVel = roundToFixed(
+    (stage5HorDisp - 0.5 * stage5XAcceleration * pow(stage5Time, 2)) /
+      stage5Time,
+    2
+  );
+  //^^I think this is right.
+  textSize(20); //font size
+  textBox = createInput();
+  textBox.style("color", "#ffffff"); //text color
+  textBox.style("background-color", newBackgroundColor.toString()); //background color
+  textBox.style("border", "2px solid #ffffff"); //border styling
+  textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
+  textBox.size(300, textAscent()); //size of the textbox
 }
 
 function drawStage5() {
   //the draw function, called every frame
 
   //determines if the game loop should be run, or if the instructions should be shown
-  if (instructionStage >= instructions[stageNumber].length) {
+  if (instructionStage >= maxInstruction) {
     stage5LoopAndCheck();
   }
   //TODO:change to else if ???
@@ -28,12 +61,40 @@ function drawStage5() {
 //this is the actual game loop, run if there are no instructions to show
 function stage5LoopAndCheck() {
   drawObjectivesStage5();
+  drawImageStage5();
+  thisBall.update();
+  thisBall.draw();
+  thisTarget.draw();
+  if (isCollided(thisBall, thisTarget)) {
+    thisBall.isActive = false;
+    instructionStage = 1;
+  }
+  if (outOfBounds(thisBall)) {
+    instructionStage = 0; //ya don goofed
+  }
 }
 
 function drawObjectivesStage5() {
-  /*this is where the top left corner box is drawn with the Stage's
-   *instructions
-   */
+  stroke(255);
+  strokeWeight(3);
+  noFill();
+  rect(0, 0, 225, 95);
+  strokeWeight(1);
+  fill(255);
+  textSize(12);
+  text("x Displacement : " + stage5HorDisp + "m", 10, textAscent() + 10);
+  text("y Displacement : " + stage5VerDisp + "m", 10, textAscent() * 2 + 15);
+  text(
+    "-y Acceleration: " + stage5YAcceleration + "m/s^2",
+    10,
+    textAscent() * 3 + 20
+  );
+  text(
+    "+x Acceleration: " + stage5XAcceleration + "m/s^2",
+    10,
+    textAscent() * 4 + 25
+  );
+  text("x velocity     : ?", 10, textAscent() * 5 + 30);
 }
 
 function stage5KeyPressed(value) {
@@ -49,6 +110,9 @@ function stage5KeyPressed(value) {
         break;
       case 13:
         //handle enter
+        enteredValue = parseFloat(textBox.value());
+        thisBall.changeVelocity(createVector(enteredValue, 0));
+        thisBall.isActive = true;
         break;
       default:
     }
@@ -76,4 +140,7 @@ function stage5Resized() {
   //called when the window is resized and we're on stage number
   //allows changing the size of stage-specific objects
   textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
+}
+function drawImageStage5() {
+  drawImage(equationImage, 150, 150);
 }

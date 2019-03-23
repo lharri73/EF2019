@@ -34,7 +34,8 @@ Oh, and the target is smaller :-)
 //5
 failure
 success
-Stage 5 instructions here
+This stage has 2 dimensional acceleration
+This could be a wind, or just a weird planet
 //6
 ###This file must end with the next stage number, even if it doesn't exist
 ##otherwise we will get what is essentially a seg-fault

@@ -31,7 +31,7 @@ function removeHash(s) {
   return s;
 }
 
-function fadeColor(c1, c2, amt) {
+function fadeColor(c1, c2) {
   backgroundColor = lerpColor(
     color(backgroundColor),
     color(newBackgroundColor),
@@ -40,8 +40,7 @@ function fadeColor(c1, c2, amt) {
   amt += 0.01;
   if (amt >= 1) {
     amt = 0.1;
-    startColor = newColor;
-    newColor = color(random(255), random(255), random(255));
+    backgroundColor = newBackgroundColor;
   }
   background(backgroundColor);
 }
