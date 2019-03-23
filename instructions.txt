@@ -1,8 +1,11 @@
-##Comments are styled as such
-##stage name
-##0:failure message
-##1:success message
-##2:everything else
+##Comments must have two '##' (Don't include '##' in an instruction or it will be ignored)
+##TODO: Fix this (Sketch.js:14-34) (or nah, yknow. it's fine)
+##stage number with the two forward slashes
+## the failure message is always first
+## followed by the success message
+## then the first instruction
+## the second instruction
+## ...
 //1
 The ball hit the target with the incorrect velocityTry again!
 Success!
@@ -29,8 +32,10 @@ In this stage, you will be at a location higher than the target. You will have t
 Note: Don't assume you're on earth...Gravity can (and does) change!
 Oh, and the target is smaller :-)
 //5
-Instructins. Line 1
-asdasd
-asdasd
+failure
+success
+Stage 5 instructions here
 //6
 ###This file must end with the next stage number, even if it doesn't exist
+##otherwise we will get what is essentially a seg-fault
+##TODO: Fix this^^ (sketch.js:14-34)

@@ -23,11 +23,11 @@
   5. Two dimensional acceleration
   6. Two dimensional acceleration given angles of acceleration
       (this is just another step to calculate)
-  5. Trajectory equation
+  7. Trajectory equation
     solve for:
       angle
       distance x (angle, distance y, velocity, acceleration)
       distance y (angle, distance x, velocity, acceleration)
       velocity initial (angle, distance x, distance y, acceleration)
       velocity final (initial velocity, angle, distance x, distance y, acceleration)
-  6. TBD
+  8. TBD
