@@ -39,7 +39,7 @@ function fadeColor(c1, c2) {
   );
   amt += 0.01;
   if (amt >= 1) {
-    amt = 0.1;
+    amt = 0.01;
     backgroundColor = newBackgroundColor;
   }
   background(backgroundColor);

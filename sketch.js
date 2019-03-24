@@ -78,6 +78,7 @@ function draw() {
       return;
     } else {
       backgroundColorChanged = false;
+      amt = 0.01;
       createTextBox = true;
     }
   }
@@ -206,7 +207,7 @@ function keyPressed() {
       stage5KeyPressed(keyCode);
       break;
     case 6:
-      stage6KeyPressed();
+      stage6KeyPressed(keyCode);
       break;
   }
 }
