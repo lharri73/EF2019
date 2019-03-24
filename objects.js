@@ -22,6 +22,7 @@ class ball {
 
     this.isActive = false;
     this.radius = 10;
+    this.trail = [];
   }
   draw() {
     //TODO: make this draw dots along its path so we can see how the velocity changes
@@ -29,17 +30,33 @@ class ball {
     stroke(0); //sets the outline color to white
     strokeWeight(1); //this is the default stroke weight
     ellipse(this.position.x, this.position.y, this.radius * 2);
+    for (let dot of this.trail) {
+      dot.draw();
+    }
   }
   update() {
     if (this.isActive) {
       //offset because this happens every frame, not every second
       //ever frame is 1/60th of a second
+      let currentTrail = new Dot(this.position.x, this.position.y);
+      this.trail.push(currentTrail);
       this.velocity.add(p5.Vector.div(this.acceleration, 60));
       this.position.add(p5.Vector.div(this.velocity, 60));
     }
   }
   changeVelocity(newVelocity) {
     this.velocity = newVelocity;
+  }
+}
+
+class Dot {
+  constructor(xPos, yPos) {
+    this.position = createVector(xPos, yPos);
+  }
+  draw() {
+    fill(18, 186, 0);
+    stroke(18, 186, 0);
+    ellipse(this.position.x, this.position.y, 2);
   }
 }
 
