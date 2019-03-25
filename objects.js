@@ -6,11 +6,19 @@ class target {
   constructor(positionVector, radius = 38) {
     this.position = positionVector;
     this.radius = radius;
+    this.picture = loadImage("images/target-1.png");
   }
   draw() {
     //TODO: update this to look like a target rather than a circle
     fill(255); //color white
-    ellipse(this.position.x, this.position.y, this.radius * 2);
+    image(
+      this.picture,
+      this.position.x - this.radius,
+      this.position.y - this.radius,
+      this.radius * 2,
+      this.radius * 2
+    );
+    //ellipse(this.position.x, this.position.y, this.radius * 2);
   }
 }
 
@@ -84,7 +92,7 @@ class cloud {
   constructor(xPos, yPos) {
     this.position = createVector(xPos, yPos);
     var cloudType = round(random(3));
-    this.velocity = 4;
+    this.velocity = 2;
   }
   draw() {
     fill(255);
