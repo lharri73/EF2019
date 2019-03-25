@@ -13,6 +13,13 @@ function preload() {
    *because preload includes an await at the end*/
 }
 
+function drawBackgroundObjects() {
+    //TODO: impliment inclusion of clouds
+    for (cloud of clouds) {
+        cloud.draw();
+    }
+}
+
 function stringsLoaded() {
   //this is an async function
   let currentArray = [];
@@ -216,9 +223,3 @@ function keyPressed() {
   }
 }
 
-function drawBackgroundObjects() {
-  //TODO: impliment inclusion of clouds
-  for (cloud of clouds) {
-    cloud.draw();
-  }
-}
