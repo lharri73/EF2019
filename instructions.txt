@@ -8,12 +8,9 @@
 ##image pathOfImage width height
 ## ...
 //1
-failure
-Success Message
+image images/Pangolin01.jpg 500 300
+CORRECT! 5.67 Points have been added to your score!
 image images/velocity_eqn.jpg 100 100
-second instruction
-third instruction
-... ... ...
 //2
 failure
 Success
