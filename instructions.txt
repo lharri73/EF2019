@@ -3,11 +3,14 @@
 ## followed by the success message
 ## then the first instruction
 ## the second instruction
+##
+##images look like this:
+##image pathOfImage width height
 ## ...
 //1
 failure
 Success
-first instruction
+image images/velocity_eqn.jpg 100 100
 second instruction
 third instruction
 ... ... ...

@@ -52,7 +52,11 @@ function drawStage6() {
   }
   //TODO:change to else if ???
   if (instructionStage < maxInstruction) {
-    drawMessage(instructions[stageNumber][instructionStage], true);
+    drawMessage(
+      instructions[stageNumber][instructionStage],
+      instructionStage,
+      true
+    );
   }
 }
 

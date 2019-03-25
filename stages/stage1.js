@@ -36,7 +36,11 @@ function drawStage1() {
   }
 
   if (instructionStage < maxInstruction) {
-    drawMessage(instructions[stageNumber][instructionStage], true);
+    drawMessage(
+      instructions[stageNumber][instructionStage],
+      instructionStage,
+      true
+    );
   }
 }
 
