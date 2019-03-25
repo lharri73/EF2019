@@ -81,6 +81,17 @@ class wall {
 }
 
 class cloud {
-  constructor() {}
-  draw() {}
+  constructor(xPos, yPos) {
+    this.position = createVector(xPos, yPos);
+    var cloudType = round(random(3));
+    this.velocity = 4;
+  }
+  draw() {
+    fill(255);
+    rect(this.position.x, this.position.y, 100, 50);
+    this.position.x += this.velocity;
+    if (this.position.x > windowWidth) {
+      this.position.x = 0;
+    }
+  }
 }

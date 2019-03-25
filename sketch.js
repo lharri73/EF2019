@@ -1,4 +1,5 @@
 //this is used to prevent the game from running a stage that doesn't exist
+let clouds = [];
 maxStage = 6;
 instructions = []; //creates a global variable
 //backgroundColor = color(135, 206, 250);
@@ -69,6 +70,9 @@ function setup() {
   constructorRun = false;
   backgroundColorChanged = false; //set this to true when the background color is changed
   createTextBox = false;
+  for (i = 0; i < 5; i++) {
+    clouds.push(new cloud(random(windowWidth, 300)));
+  }
 }
 
 function draw() {
@@ -214,4 +218,7 @@ function keyPressed() {
 
 function drawBackgroundObjects() {
   //TODO: impliment inclusion of clouds
+  for (cloud of clouds) {
+    cloud.draw();
+  }
 }

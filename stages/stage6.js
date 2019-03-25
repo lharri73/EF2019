@@ -44,7 +44,7 @@ function drawStage6() {
     textBox.style("border", "2px solid #ffffff"); //border styling
     textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
     textBox.size(300, textAscent()); //size of the textbox
-    createTextBox = false;
+    textBox.createTextBox = false;
   }
   //determines if the game loop should be run, or if the instructions should be shown
   if (instructionStage >= instructions[stageNumber].length) {

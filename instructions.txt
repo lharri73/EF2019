@@ -9,7 +9,7 @@
 ## ...
 //1
 failure
-Success
+Success Message
 image images/velocity_eqn.jpg 100 100
 second instruction
 third instruction
