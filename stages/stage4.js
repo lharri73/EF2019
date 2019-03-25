@@ -136,3 +136,10 @@ function stage4Resized() {
 function drawImageStage4() {
   drawImage(equationImage, 150, 150);
 }
+
+function stage4Resized() {
+  stage4HorDisp = roundToFixed(thisTarget.position.x - thisBall.position.x, 2);
+  stage4VerDisp = roundToFixed(thisTarget.position.y - thisBall.position.y, 2);
+  stage4Time = sqrt((2 * stage4VerDisp) / stage4Acceleration);
+  stage4Vel = roundToFixed(stage4HorDisp / stage4Time, 2);
+}
