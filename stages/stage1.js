@@ -4,7 +4,7 @@ function stage1Constructor() {
 
   initialPosition = createVector(
     floor(random(10, 50)),
-    random(80, windowHeight - 80)
+    random(150, windowHeight - 60)
   );
 
   targetPosition = createVector(windowWidth - 50, initialPosition.y);
