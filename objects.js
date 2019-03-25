@@ -96,6 +96,7 @@ class cloud {
   }
   draw() {
     fill(255);
+    stroke(255);
     rect(this.position.x, this.position.y, 100, 50);
     this.position.x += this.velocity;
     if (this.position.x > windowWidth) {

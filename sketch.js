@@ -70,8 +70,8 @@ function setup() {
   constructorRun = false;
   backgroundColorChanged = false; //set this to true when the background color is changed
   createTextBox = false;
-  for (i = 0; i < 5; i++) {
-    clouds.push(new cloud(random(windowWidth), random(100, 300)));
+  for (i = 0; i < 4; i++) {
+    clouds.push(new cloud(random(windowWidth), random(0, 100)));
   }
 }
 
