@@ -12,7 +12,7 @@ function drawMessage(textForMessage, thisInstructionStage, anyKeyBool = false) {
   if (textForMessage.startsWith("image")) {
     thisInstruction = textForMessage.slice(6);
     thisInstruction = thisInstruction.split(" ");
-        if (previousInstruction != thisInstructionStage) {
+    if (previousInstruction != thisInstructionStage) {
       thisImage = loadImage(thisInstruction[0]);
       previousInstruction = thisInstructionStage;
     }
@@ -25,11 +25,9 @@ function drawMessage(textForMessage, thisInstructionStage, anyKeyBool = false) {
     );
 
     //rect(0, 0, 100, 100);
-  } else if(textForMessage.startsWith("description")){
+  } else if (textForMessage.startsWith("description")) {
     thisInstruction = textForMessage.slice(12);
-    thisInstruction = thisInstruction.split(" ");
-    //TODO: make this check for the dimensions first, then the description
-  }else {
+  } else {
     noFill();
     stroke(0);
     strokeWeight(3);
@@ -49,10 +47,11 @@ function drawMessage(textForMessage, thisInstructionStage, anyKeyBool = false) {
     if (anyKeyBool) {
       stroke(255);
       fill(255);
-      let width2 = textWidth("Press any key to continue");
+      const continueString = "Press any key to continue";
+      var width2 = textWidth(continueString);
       text(
-        "Press any key to continue",
-        positionX + width/2 - width2/2,
+        continueString,
+        positionX + width / 2 - width2 / 2,
         positionY + height / 2 + 100
       );
     }
