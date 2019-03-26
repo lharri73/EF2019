@@ -27,6 +27,10 @@ function stage1Constructor() {
   //----------------------------------------------------------------------------
   //initialize game values
   velocityGoal = floor(random(500, 1000));
+
+  if(DEBUG){
+  console.log(velocityGoal);
+}
 }
 
 function drawStage1() {

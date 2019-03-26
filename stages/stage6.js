@@ -32,6 +32,9 @@ function stage6Constructor() {
       stage6Time,
     2
   );
+
+  ///// DEBUG:
+  console.log(stage6InitVel);
 }
 
 function drawStage6() {

@@ -45,6 +45,25 @@ function stage3Constructor() {
     createVector(0, 0),
     createVector(stage3Accel, 0)
   );
+
+  if(DEBUG){
+   switch (versionID) {
+     case 0:
+     console.log(stage3Time);
+     break;
+     case 1:
+     console.log(stage3Vel);
+     break;
+     case 2:
+     console.log(stage3Disp);
+     break;
+     case 3:
+       console.log(stage3Accel);
+       break;
+     default:
+
+   }
+ }
 }
 
 //------------------------------------------------------------------------------

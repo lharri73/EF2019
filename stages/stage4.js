@@ -34,6 +34,11 @@ function stage4Constructor() {
   stage4VerDisp = roundToFixed(thisTarget.position.y - thisBall.position.y, 2);
   stage4Time = sqrt((2 * stage4VerDisp) / stage4Acceleration);
   stage4Vel = roundToFixed(stage4HorDisp / stage4Time, 2);
+
+  //// DEBUG:
+  if(DEBUG){
+  console.log(stage4Vel);
+}
 }
 
 function drawStage4() {

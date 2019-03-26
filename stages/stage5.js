@@ -35,6 +35,10 @@ function stage5Constructor() {
     2
   );
   //^^I think this is right.
+
+  if(DEBUG){
+  console.log(stage5InitVel);
+}
 }
 
 function drawStage5() {

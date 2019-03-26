@@ -41,6 +41,20 @@ function stage2Constructor() {
     thisBall.radius;
   stage2Disp = roundToFixed(stage2DispA, 2);
   stage2Velocity = roundToFixed(stage2Disp / stage2Time, 2);
+
+  if(DEBUG){
+  switch (versionID) {
+    case 0://time, disp, vel
+    console.log(stage2Time);
+    break;
+    case 1:
+    console.log(stage2Disp);
+    break;
+    case 2:
+    console.log(stage2Velocity);
+    break;
+  }
+}
 }
 
 function drawStage2() {
