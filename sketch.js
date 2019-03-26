@@ -2,6 +2,7 @@
 let clouds = [];
 
 score = 0;
+highScore = 0;
 
 maxStage = 6;
 instructions = []; //creates a global variable
@@ -43,7 +44,7 @@ function stringsLoaded() {
     } else {
       currentArray.push(importedInstructions[i]);
     }
-  } 
+  }
 }
 
 function windowResized() {
@@ -87,6 +88,7 @@ function setup() {
     clouds.push(new cloud());
   }
   score = 0;
+  cookieStorageLoad();
 }
 
 function draw() {
@@ -106,7 +108,15 @@ function draw() {
   stroke(0);
   fill(0);
   text("Stage: " + stageNumber, windowWidth - 90, textAscent() + 10);
-  text("Score: " + score, windowWidth - 90, textAscent()*2 + 15);
+  stroke(0);
+  strokeWeight(3);
+  noFill();
+  rect(0,windowHeight, 160,-40)
+  strokeWeight(1);
+  fill(0);
+  textSize(12);
+  text("Score      : " + score, 10, windowHeight - textAscent()*2);
+  text("High Schore: " + highScore, 10, windowHeight - textAscent() +5);
 
   //determine what stage we're on
   switch (stageNumber) {
@@ -175,6 +185,8 @@ function incrimentStage() {
   }
 
   stageNumber++;
+  var a = new Date(new Date().getTime() +1000*60*60*24*365);
+  document.cookie="highestStage="+stageNumber+"; expires="+a.toGMTString() + "; path=/";
   constructorRun = false;
   createTextBox = true;
 }
