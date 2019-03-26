@@ -33,8 +33,9 @@ function stage6Constructor() {
     2
   );
 
-  ///// DEBUG:
+  if(DEBUG){
   console.log(stage6InitVel);
+}
 }
 
 function drawStage6() {
@@ -48,7 +49,7 @@ function drawStage6() {
       textBox.attribute("type", "number")
     textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
     textBox.size(300, textAscent()); //size of the textbox
-    textBox.createTextBox = false;
+    createTextBox = false;
   }
   //determines if the game loop should be run, or if the instructions should be shown
   if (instructionStage >= instructions[stageNumber].length) {
