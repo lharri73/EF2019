@@ -39,7 +39,7 @@ function drawMessage(textForMessage, thisInstructionStage, anyKeyBool = false) {
     text(
       textForMessage,
       positionX + border,
-      positionY + textAscent() + border,
+      positionY + border, //I guess the position for text is the top left corner too...
       width - 2 * border,
       height - 2 * border
     );
