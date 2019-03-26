@@ -111,9 +111,10 @@ function draw() {
   stroke(0);
   strokeWeight(3);
   noFill();
-  rect(0,windowHeight, 170,-55)
+  rect(0,windowHeight, 160,-40)
   strokeWeight(1);
   fill(0);
+  textSize(12);
   text("Score      : " + score, 10, windowHeight - textAscent()*2);
   text("High Schore: " + highScore, 10, windowHeight - textAscent() +5);
 
@@ -184,6 +185,8 @@ function incrimentStage() {
   }
 
   stageNumber++;
+  var a = new Date(new Date().getTime() +1000*60*60*24*365);
+  document.cookie="highestStage="+stageNumber+"; expires="+a.toGMTString() + "; path=/";
   constructorRun = false;
   createTextBox = true;
 }

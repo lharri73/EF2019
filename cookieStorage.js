@@ -21,12 +21,14 @@ function cookieStorageLoad(){
     var a = new Date(new Date().getTime() +1000*60*60*24*365);
     document.cookie="highestStage=1; expires="+a.toGMTString() + "; path=/";
     document.cookie="highestScore=0; expires="+a.toGMTString() + "; path=/";
+    document.cookie="currentScore=0; expires="+a.toGMTString() + "; path=/";
   }else{
-    score = 0;
     highScore = parseFloat(result["highestScore"]);
     stageNumber = parseInt(result["highestStage"]);
-    console.log(highScore);
-    console.log(stageNumber);
+    if(stageNumber > maxStage){
+      stageNumber = maxStage;
+    }
+    score = parseFloat(result["currentScore"]);
   }
 }
 }
