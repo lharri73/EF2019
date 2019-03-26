@@ -6,7 +6,7 @@ class target {
   constructor(positionVector, radius = 38) {
     this.position = positionVector;
     this.radius = radius;
-    this.picture = loadImage("images/target-1.png");
+    this.picture = loadImage("images/core/target-1.png");
   }
   draw() {
     //TODO: update this to look like a target rather than a circle
@@ -15,8 +15,8 @@ class target {
       this.picture,
       this.position.x - this.radius,
       this.position.y - this.radius,
-      this.radius * 2,
-      this.radius * 2
+      (this.radius * 2),
+      (this.radius * 2)
     );
     //ellipse(this.position.x, this.position.y, this.radius * 2);
   }
@@ -89,18 +89,31 @@ class wall {
 }
 
 class cloud {
-  constructor(xPos, yPos) {
-    this.position = createVector(xPos, yPos);
-    var cloudType = round(random(3));
-    this.velocity = 2;
+  constructor(cloudVelocity=1) {
+    this.position = createVector(random(-100, windowWidth), random(0, 100));
+    var cloudType = floor(random(3));
+    switch (cloudType) {
+      case 0:
+        this.image = loadImage("images/core/cloud1.png");
+        break;
+        case 1:
+        this.image = loadImage("images/core/cloud2.png");
+        break;
+        case 2:
+        this.image = loadImage("images/core/cloud3.png");
+        break;
+    }
+    this.velocity = cloudVelocity;
   }
   draw() {
     fill(255);
     stroke(255);
-    rect(this.position.x, this.position.y, 100, 50);
+    image(this.image, this.position.x, this.position.y, 100, 50);
     this.position.x += this.velocity;
     if (this.position.x > windowWidth) {
-      this.position.x = 0;
+      //this makes the clouds look more random without editing an array
+      this.position.x = random(-100, 0);
+      this.position.y = random(0,100);
     }
   }
 }

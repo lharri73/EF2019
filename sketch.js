@@ -1,5 +1,8 @@
 //this is used to prevent the game from running a stage that doesn't exist
 let clouds = [];
+
+score = 0;
+
 maxStage = 6;
 instructions = []; //creates a global variable
 //backgroundColor = color(135, 206, 250);
@@ -9,6 +12,7 @@ let amt = 0.01;
 function preload() {
   //load font here if not websafe
   importedInstructions = loadStrings("instructions.txt", stringsLoaded);
+  menlo = loadFont("assets/Menlo-Regular.ttf");
   /*loadStrings is an async function, however it will be complete
    *because preload includes an await at the end*/
 }
@@ -39,15 +43,17 @@ function stringsLoaded() {
     } else {
       currentArray.push(importedInstructions[i]);
     }
-  }
+  } 
 }
 
 function windowResized() {
   //this handles the resizing of the window
   resizeCanvas(windowWidth, windowHeight);
   switch (stageNumber) {
+
     case 1:
       stage1Resized();
+      console.log("Resized stage 1");
       break;
     case 2:
       stage2Resized();
@@ -72,14 +78,15 @@ function setup() {
   /*the stage number is initalized in the html file to keep it in scope
    *throughout the files*/
   //NOTE: When testing a stage, just change the value in the html file
-  textFont("Menlo"); //this font is monospace.
+  textFont(menlo); //this font is monospace.
   //if we need to change the font, we need to readjust each message's \n
   constructorRun = false;
   backgroundColorChanged = false; //set this to true when the background color is changed
   createTextBox = false;
-  for (i = 0; i < 4; i++) {
-    clouds.push(new cloud(random(windowWidth), random(0, 100)));
+  for (i = 0; i < 6; i++) {
+    clouds.push(new cloud());
   }
+  score = 0;
 }
 
 function draw() {
@@ -99,6 +106,7 @@ function draw() {
   stroke(0);
   fill(0);
   text("Stage: " + stageNumber, windowWidth - 90, textAscent() + 10);
+  text("Score: " + score, windowWidth - 90, textAscent()*2 + 15);
 
   //determine what stage we're on
   switch (stageNumber) {
@@ -222,4 +230,3 @@ function keyPressed() {
       break;
   }
 }
-

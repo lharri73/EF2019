@@ -2,7 +2,7 @@ function stage5Constructor() {
   //The constructor for the stage
   instructionStage = 2;
   maxInstruction = instructions[stageNumber].length;
-  equationImage = loadImage("images/acceleration_eqns.jpg");
+  equationImage = loadImage("images/eqns/acceleration_eqns.jpg");
   //TODO: find new color cause this is garbage.
   //looking for a mars-like color
   newBackgroundColor = color("#c1440e");

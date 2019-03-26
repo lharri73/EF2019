@@ -2,7 +2,7 @@ function stage4Constructor() {
   //The constructor for the stage
   instructionStage = 2;
   maxInstruction = instructions[stageNumber].length;
-  equationImage = loadImage("images/acceleration_eqns.jpg");
+  equationImage = loadImage("images/eqns/acceleration_eqns.jpg");
 
   ballPosition = createVector(
     floor(random(10, 50)),

@@ -10,7 +10,7 @@
 //1
 image images/Pangolin01.jpg 500 300
 CORRECT! 5.67 Points have been added to your score!
-image images/velocity_eqn.jpg 100 100
+image images/eqns/velocity_eqn.jpg 100 100
 //2
 failure
 Success
