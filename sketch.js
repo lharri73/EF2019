@@ -119,8 +119,8 @@ function draw() {
   strokeWeight(1);
   fill(0);
   textSize(12);
-  text("Score      : " + score, 10, windowHeight - textAscent() * 2);
-  text("High Schore: " + highScore, 10, windowHeight - textAscent() + 5);
+  text("Score     : " + score, 10, windowHeight - textAscent() * 2);
+  text("High Score: " + highScore, 10, windowHeight - textAscent() + 5);
 
   //determine what stage we're on
   switch (stageNumber) {
