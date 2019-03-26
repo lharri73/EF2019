@@ -1,0 +1,23 @@
+{
+  "name": "ef2019",
+  "version": "1.0.0",
+  "description": "ef project created by Landon Harris, Zach Webber, and Courtney Weaver",
+  "main": "index.html",
+  "dependencies": {
+    "cookie-storage": "^3.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lharri73/EF2019.git"
+  },
+  "author": "Landon Harris, Zach Webber, Courtney Weaver",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lharri73/EF2019/issues"
+  },
+  "homepage": "https://github.com/lharri73/EF2019#readme"
+}
