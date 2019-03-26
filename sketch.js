@@ -4,7 +4,7 @@ let clouds = [];
 score = 0;
 highScore = 0;
 
-maxStage = 6;
+maxStage = 7;
 instructions = []; //creates a global variable
 //backgroundColor = color(135, 206, 250);
 let backgroundColor;
@@ -19,10 +19,10 @@ function preload() {
 }
 
 function drawBackgroundObjects() {
-    //TODO: impliment inclusion of clouds
-    for (cloud of clouds) {
-        cloud.draw();
-    }
+  //TODO: impliment inclusion of clouds
+  for (cloud of clouds) {
+    cloud.draw();
+  }
 }
 
 function stringsLoaded() {
@@ -51,7 +51,6 @@ function windowResized() {
   //this handles the resizing of the window
   resizeCanvas(windowWidth, windowHeight);
   switch (stageNumber) {
-
     case 1:
       stage1Resized();
       console.log("Resized stage 1");
@@ -68,7 +67,12 @@ function windowResized() {
     case 5:
       stage5Resized();
       break;
-    default:
+    case 6:
+      stage6Resized();
+      break;
+    case 7:
+      stage7Resized();
+      break;
   }
 }
 
@@ -111,12 +115,12 @@ function draw() {
   stroke(0);
   strokeWeight(3);
   noFill();
-  rect(0,windowHeight, 160,-40)
+  rect(0, windowHeight, 160, -40);
   strokeWeight(1);
   fill(0);
   textSize(12);
-  text("Score      : " + score, 10, windowHeight - textAscent()*2);
-  text("High Schore: " + highScore, 10, windowHeight - textAscent() +5);
+  text("Score      : " + score, 10, windowHeight - textAscent() * 2);
+  text("High Schore: " + highScore, 10, windowHeight - textAscent() + 5);
 
   //determine what stage we're on
   switch (stageNumber) {
@@ -165,6 +169,13 @@ function draw() {
       }
       drawStage6();
       break;
+    case 7:
+      if (!constructorRun) {
+        stage7Constructor();
+        constructorRun = true;
+      }
+      drawStage7();
+      break;
     /*
         ...
     */
@@ -185,8 +196,9 @@ function incrimentStage() {
   }
 
   stageNumber++;
-  var a = new Date(new Date().getTime() +1000*60*60*24*365);
-  document.cookie="highestStage="+stageNumber+"; expires="+a.toGMTString() + "; path=/";
+  var a = new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 365);
+  document.cookie =
+    "highestStage=" + stageNumber + "; expires=" + a.toGMTString() + "; path=/";
   constructorRun = false;
   createTextBox = true;
 }
@@ -217,6 +229,9 @@ function mouseClicked() {
     case 6:
       stage6MouseClicked();
       break;
+    case 7:
+      stage7MouseClicked();
+      break;
   }
 }
 
@@ -239,6 +254,9 @@ function keyPressed() {
       break;
     case 6:
       stage6KeyPressed(keyCode);
+      break;
+    case 7:
+      stage7KeyPressed(keyCode);
       break;
   }
 }
