@@ -15,7 +15,7 @@ class target {
       this.picture,
       this.position.x - this.radius,
       this.position.y - this.radius,
-      this.radius * 4, //IDK why this is twice what think it should be
+      this.radius * 4, //TODO: fix the images so they are the right size
       this.radius * 2
     );
     //ellipse(this.position.x, this.position.y, this.radius * 2);
@@ -27,7 +27,6 @@ class ball {
     this.position = positionVector;
     this.velocity = veolictyVector;
     this.acceleration = accelerationVector;
-    this.image = loadImage("images/core/ball.png");
     this.isActive = false;
     this.radius = 10;
     this.trail = [];
@@ -37,11 +36,10 @@ class ball {
     fill(244, 75, 66); //red color for the ball
     stroke(0); //sets the outline color to white
     strokeWeight(1); //this is the default stroke weight
-    image(
-      this.image,
+    ellipse(
       this.position.x,
       this.position.y,
-      this.radius * 4, //IDK why this is twice what I think it should be
+      this.radius * 2, //IDK why this is twice what I think it should be
       this.radius * 2
     ); //TODO: not sure if I like the image she drew
     for (let dot of this.trail) {
