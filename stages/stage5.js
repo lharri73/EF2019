@@ -5,6 +5,10 @@ function stage5Constructor() {
   equationImage = loadImage("images/eqns/acceleration_eqns.jpg");
   //TODO: find new color cause this is garbage.
   //looking for a mars-like color
+  clouds = [];
+  for (i = 0; i < 6; i++) {
+    clouds.push(new marsCloud());
+  }
   newBackgroundColor = color("#c1440e");
   backgroundColorChanged = true;
   ballPosition = createVector(
@@ -36,9 +40,9 @@ function stage5Constructor() {
   );
   //^^I think this is right.
 
-  if(DEBUG){
-  console.log(stage5InitVel);
-}
+  if (DEBUG) {
+    console.log(stage5InitVel);
+  }
 }
 
 function drawStage5() {
@@ -50,7 +54,7 @@ function drawStage5() {
     textBox.style("color", "#ffffff"); //text color
     textBox.style("background-color", newBackgroundColor.toString()); //background color
     textBox.style("border", "2px solid #ffffff"); //border styling
-      textBox.attribute("type", "number")
+    textBox.attribute("type", "number");
     textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
     textBox.size(300, textAscent()); //size of the textbox
     createTextBox = false;

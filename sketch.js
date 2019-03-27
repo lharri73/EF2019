@@ -88,9 +88,6 @@ function setup() {
   constructorRun = false;
   backgroundColorChanged = false; //set this to true when the background color is changed
   createTextBox = false;
-  for (i = 0; i < 6; i++) {
-    clouds.push(new cloud());
-  }
   score = 0;
   cookieStorageLoad();
 }

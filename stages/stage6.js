@@ -3,8 +3,6 @@ function stage6Constructor() {
   instructionStage = 2;
   maxInstruction = instructions[stageNumber].length;
   equationImage = loadImage("images/eqns/acceleration_eqns.jpg");
-  newBackgroundColor = color("#87cefa");
-  backgroundColorChanged = true;
   ballPosition = createVector(
     floor(random(10, 50)),
     random(80, (windowHeight * 2) / 3)
@@ -33,9 +31,9 @@ function stage6Constructor() {
     2
   );
 
-  if(DEBUG){
-  console.log(stage6InitVel);
-}
+  if (DEBUG) {
+    console.log(stage6InitVel);
+  }
 }
 
 function drawStage6() {
@@ -46,7 +44,7 @@ function drawStage6() {
     textBox.style("color", "#ffffff"); //text color
     textBox.style("background-color", newBackgroundColor.toString()); //background color
     textBox.style("border", "2px solid #ffffff"); //border styling
-      textBox.attribute("type", "number")
+    textBox.attribute("type", "number");
     textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
     textBox.size(300, textAscent()); //size of the textbox
     createTextBox = false;

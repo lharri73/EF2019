@@ -2,14 +2,32 @@ function stage7Constructor() {
   //The constructor for the stage
   instructionStage = 2;
   maxInstruction = instructions[stageNumber].length;
+  newBackgroundColor = color("#87cefa");
+  backgroundColorChanged = true;
+
+  //reset the clouds
+  clouds = [];
+  for (var i = 0; i < 6; i++) {
+    clouds.push(new cloud());
+  }
 }
 
 function drawStage7() {
   //the draw function, called every frame
-
+  if (createTextBox) {
+    textSize(20); //font size
+    textBox = createInput();
+    textBox.style("color", "#ffffff"); //text color
+    textBox.style("background-color", newBackgroundColor.toString()); //background color
+    textBox.style("border", "2px solid #ffffff"); //border styling
+    textBox.attribute("type", "number");
+    textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
+    textBox.size(300, textAscent()); //size of the textbox
+    createTextBox = false;
+  }
   //determines if the game loop should be run, or if the instructions should be shown
   if (instructionStage >= instructions[stageNumber].length) {
-    stageNumberLoopAndCheck();
+    stage7LoopAndCheck();
   }
   //TODO:change to else if ???
   if (instructionStage < maxInstruction) {
