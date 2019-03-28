@@ -13,7 +13,7 @@ CORRECT! 5.67 Points have been added to your score!
 image images/eqns/velocity_eqn.jpg 100 100
 //2
 failure
-Success
+Success #this is where we should put the 'instrucitonal part' of the app
 first instruction
 //3
 failure
