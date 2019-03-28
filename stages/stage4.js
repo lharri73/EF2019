@@ -10,7 +10,7 @@ function stage4Constructor() {
   );
   targetPosition = createVector(
     windowWidth - 50,
-    roundToFixed(random(ballPosition.y - 100, windowHeight - 80), 2)
+    roundToFixed(random(ballPosition.y, windowHeight - 80), 2)
   );
 
   thisTarget = new target(targetPosition, 19);
