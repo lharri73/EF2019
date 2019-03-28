@@ -10,7 +10,6 @@ class target {
   }
   draw() {
     //TODO: update this to look like a target rather than a circle
-    fill(255); //color white
     image(
       this.picture,
       this.position.x - this.radius,
