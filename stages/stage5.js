@@ -130,7 +130,6 @@ function stage5KeyPressed(value) {
   if (instructionStage > maxInstruction) {
     switch (value) {
       case 32: //32 = space
-        thisBall.isActive = !thisBall.isActive;
         break;
       case 13:
         //handle enter
@@ -139,9 +138,7 @@ function stage5KeyPressed(value) {
         thisBall.changeVelocity(createVector(enteredValue, 0));
         thisBall.isActive = true;
         break;
-      default:
     }
-    return;
   }
   if (instructionStage <= maxInstruction && instructionStage > 1) {
     //catch any key and run the function if there is more instructions to show

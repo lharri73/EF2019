@@ -4,12 +4,39 @@ function stage7Constructor() {
   maxInstruction = instructions[stageNumber].length;
   newBackgroundColor = color("#87cefa");
   backgroundColorChanged = true;
+  equationImage = loadImage("images/eqns/acceleration_eqns.jpg");
 
   //reset the clouds
   clouds = [];
   for (var i = 0; i < 6; i++) {
     clouds.push(new cloud());
   }
+  var yPosition = (windowHeight * 2) / 3;
+  targetPosition = createVector(
+    floor(random(windowWidth / 2 + 150, windowWidth - 19)),
+    yPosition
+  );
+  thisTarget = new target(targetPosition);
+  initialPosition = createVector(
+    floor(random(10, windowWidth / 2 - 150)),
+    yPosition
+  );
+  thisBall = new ball(
+    initialPosition,
+    createVector(0, 0, 0),
+    createVector(0, 0, 0)
+  );
+  thisWall = new wall(
+    windowHeight - yPosition + 100,
+    windowWidth / 2,
+    BOTTOM,
+    100
+  );
+
+  velocityVector = createVector(random(0, 100), random(-100, 0));
+  velocityVector.normalize();
+  velocityVector.mult(random(100, 300));
+  console.log(velocityVector);
 }
 
 function drawStage7() {
@@ -42,6 +69,24 @@ function drawStage7() {
 //this is the actual game loop, run if there are no instructions to show
 function stage7LoopAndCheck() {
   drawObjectivesStage7();
+  drawImageStage7();
+  thisBall.update();
+  thisBall.draw();
+  thisTarget.draw();
+  thisWall.draw();
+  line(
+    thisBall.position.x,
+    thisBall.position.y,
+    thisBall.position.x + velocityVector.x,
+    thisBall.position.y + velocityVector.y
+  );
+  if (isCollided(thisBall, thisTarget)) {
+    thisBall.isActive = false;
+    instructionStage = 1;
+  }
+  if (outOfBounds(thisBall)) {
+    instructionStage = 0;
+  }
 }
 
 function drawObjectivesStage7() {
@@ -84,6 +129,10 @@ function stage7KeyPressed(value) {
 
 function stage7MouseClicked() {
   //executed when the mouse is clicked and we're on stage 7
+}
+
+function drawImageStage7() {
+  drawImage(equationImage, 150, 150);
 }
 
 function stage7Resized() {

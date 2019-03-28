@@ -21,6 +21,10 @@
   5. Two dimensional acceleration
   6. Two dimensional acceleration given angles of acceleration
       (this is just another step to calculate)
+  7. Kinematic equations
+    solve for:
+      angle (initialVelocity, accelerations, time, displacement x)
+      inital velocity (angle, accelerations, time, displacement x)
   7. Trajectory equation
     solve for:
       angle
