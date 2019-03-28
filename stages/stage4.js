@@ -26,7 +26,7 @@ function stage4Constructor() {
   textBox.style("color", "#ffffff"); //text color
   textBox.style("background-color", backgroundColor.toString()); //background color
   textBox.style("border", "2px solid #ffffff"); //border styling
-  textBox.attribute("type", "number")
+  textBox.attribute("type", "number");
   textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
   textBox.size(300, textAscent()); //size of the textbox
 
@@ -36,9 +36,9 @@ function stage4Constructor() {
   stage4Vel = roundToFixed(stage4HorDisp / stage4Time, 2);
 
   //// DEBUG:
-  if(DEBUG){
-  console.log(stage4Vel);
-}
+  if (DEBUG) {
+    console.log(stage4Vel);
+  }
 }
 
 function drawStage4() {
@@ -82,14 +82,22 @@ function drawObjectivesStage4() {
   strokeWeight(1);
   fill(0);
   textSize(12);
-  text("x Displacement : " + stage4HorDisp + "m", 10, textAscent() + 10);
-  text("Change in y Displacement : " + stage4VerDisp + "m", 10, textAscent() * 2 + 15);
   text(
-    "-y Acceleration: " + stage4Acceleration + "m/s^2",
+    "x Displacement           : " + stage4HorDisp + "m",
+    10,
+    textAscent() + 10
+  );
+  text(
+    "Change in y Displacement : " + stage4VerDisp + "m",
+    10,
+    textAscent() * 2 + 15
+  );
+  text(
+    "-y Acceleration          : " + stage4Acceleration + "m/s^2",
     10,
     textAscent() * 3 + 20
   );
-    text("x velocity     : ?", 10, textAscent() * 4 + 25);
+  text("x velocity             : ?", 10, textAscent() * 4 + 25);
 }
 
 function stage4KeyPressed(value) {

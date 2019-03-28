@@ -87,17 +87,28 @@ function drawObjectivesStage6() {
   strokeWeight(1);
   fill(255);
   textSize(12);
-  text("x Displacement : " + stage6HorDisp + "m", 10, textAscent() + 10);
-  text("Change in y Displacement : " + stage6VerDisp + "m", 10, textAscent() * 2 + 15);
+  text(
+    "x Displacement           : " + stage6HorDisp + "m",
+    10,
+    textAscent() + 10
+  );
+  text(
+    "Change in y Displacement : " + stage6VerDisp + "m",
+    10,
+    textAscent() * 2 + 15
+  );
   let accelerationString =
-    String("acceleration   : " + roundToFixed(thisBall.acceleration.mag(), 2)) +
+    String(
+      "acceleration             : " +
+        roundToFixed(thisBall.acceleration.mag(), 2)
+    ) +
     String(
       " @ " +
         roundToFixed(360 - degrees(thisBall.acceleration.heading()), 2) +
         "°"
     );
   text(accelerationString, 10, textAscent() * 3 + 20);
-    text("x velocity     : ?", 10, textAscent() * 4 + 25); 
+  text("x velocity               : ?", 10, textAscent() * 4 + 25);
 }
 
 function stage6KeyPressed(value) {

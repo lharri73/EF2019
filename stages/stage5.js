@@ -98,20 +98,27 @@ function drawObjectivesStage5() {
   strokeWeight(1);
   fill(255);
   textSize(12);
-  text("x Displacement : " + stage5HorDisp + "m", 10, textAscent() + 10);
-  text("Change in y Displacement : " + stage5VerDisp + "m", 10, textAscent() * 2 + 15);
   text(
-    "-y Acceleration: " + stage5YAcceleration + "m/s^2",
+    "x Displacement           : " + stage5HorDisp + "m",
+    10,
+    textAscent() + 10
+  );
+  text(
+    "Change in y Displacement : " + stage5VerDisp + "m",
+    10,
+    textAscent() * 2 + 15
+  );
+  text(
+    "-y Acceleration          : " + stage5YAcceleration + "m/s^2",
     10,
     textAscent() * 3 + 20
   );
   text(
-    "+x Acceleration: " + stage5XAcceleration + "m/s^2",
+    "+x Acceleration          : " + stage5XAcceleration + "m/s^2",
     10,
     textAscent() * 4 + 25
   );
-    text("x velocity     : ?", 10, textAscent() * 5 + 30);
-
+  text("x velocity             : ?", 10, textAscent() * 5 + 30);
 }
 
 function stage5KeyPressed(value) {
