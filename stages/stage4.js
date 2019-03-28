@@ -83,7 +83,7 @@ function drawObjectivesStage4() {
   fill(0);
   textSize(12);
   text(
-    "x Displacement           : " + stage4HorDisp + "m",
+    "Change in x Displacement : " + stage4HorDisp + "m",
     10,
     textAscent() + 10
   );

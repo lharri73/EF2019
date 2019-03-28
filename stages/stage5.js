@@ -94,12 +94,12 @@ function drawObjectivesStage5() {
   stroke(255);
   strokeWeight(3);
   noFill();
-  rect(0, 0, 225, 95);
+  rect(0, 0, 325, 95);
   strokeWeight(1);
   fill(255);
   textSize(12);
   text(
-    "x Displacement           : " + stage5HorDisp + "m",
+    "Change in x Displacement : " + stage5HorDisp + "m",
     10,
     textAscent() + 10
   );
@@ -118,7 +118,7 @@ function drawObjectivesStage5() {
     10,
     textAscent() * 4 + 25
   );
-  text("x velocity             : ?", 10, textAscent() * 5 + 30);
+  text("x velocity               : ?", 10, textAscent() * 5 + 30);
 }
 
 function stage5KeyPressed(value) {
