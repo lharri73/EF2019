@@ -8,16 +8,16 @@
 ##image pathOfImage width height
 ## ...
 //1
-image images/Pangolin01.jpg 500 300
-CORRECT! 5.67 Points have been added to your score!
+Failure! Hint: The number in the top right is the answer.
+Correct! 
 image images/eqns/velocity_eqn.jpg 100 100
 //2
-failure
-Success #this is where we should put the 'instrucitonal part' of the app
+Failure! Hint: Divide the total distance by the time it takes to travel that distance. (Bottom Right Corner)
+Corrct! 
 first instruction
 //3
-failure
-Success
+Failure! Start by writing out what you know. Then use the formula from the bottom right corner to figure out the missing variable.
+Correct!
 first instruction
 //4
 failure
