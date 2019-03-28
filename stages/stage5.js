@@ -99,7 +99,7 @@ function drawObjectivesStage5() {
   fill(255);
   textSize(12);
   text("x Displacement : " + stage5HorDisp + "m", 10, textAscent() + 10);
-  text("y Displacement : " + stage5VerDisp + "m", 10, textAscent() * 2 + 15);
+  text("Change in y Displacement : " + stage5VerDisp + "m", 10, textAscent() * 2 + 15);
   text(
     "-y Acceleration: " + stage5YAcceleration + "m/s^2",
     10,
@@ -111,7 +111,6 @@ function drawObjectivesStage5() {
     textAscent() * 4 + 25
   );
     text("x velocity     : ?", 10, textAscent() * 5 + 30);
-    text("Target y Displacement : " + thisTarget.position.y + "m");
 
 }
 

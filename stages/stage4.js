@@ -83,14 +83,13 @@ function drawObjectivesStage4() {
   fill(0);
   textSize(12);
   text("x Displacement : " + stage4HorDisp + "m", 10, textAscent() + 10);
-  text("y Displacement : " + stage4VerDisp + "m", 10, textAscent() * 2 + 15);
+  text("Change in y Displacement : " + stage4VerDisp + "m", 10, textAscent() * 2 + 15);
   text(
     "-y Acceleration: " + stage4Acceleration + "m/s^2",
     10,
     textAscent() * 3 + 20
   );
     text("x velocity     : ?", 10, textAscent() * 4 + 25);
-    text("Target y Displacement : " + thisTarget.position.y + "m");
 }
 
 function stage4KeyPressed(value) {
