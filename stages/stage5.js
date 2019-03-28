@@ -110,7 +110,9 @@ function drawObjectivesStage5() {
     10,
     textAscent() * 4 + 25
   );
-  text("x velocity     : ?", 10, textAscent() * 5 + 30);
+    text("x velocity     : ?", 10, textAscent() * 5 + 30);
+    text("Target y Displacement : " + thisTarget.position.y + "m");
+
 }
 
 function stage5KeyPressed(value) {

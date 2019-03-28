@@ -97,8 +97,10 @@ function drawObjectivesStage6() {
         "°"
     );
   text(accelerationString, 10, textAscent() * 3 + 20);
-  text("x velocity     : ?", 10, textAscent() * 4 + 25);
+    text("x velocity     : ?", 10, textAscent() * 4 + 25); 
+    text("Target y Displacement : " + thisTarget.position.y + "m");
 }
+
 function stage6KeyPressed(value) {
   /*this is called when a key is pressed and it is on this stage
    *value has the value of the key pressed,
