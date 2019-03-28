@@ -3,7 +3,7 @@
 function drawCannon(xPosition, yPosition, angleCCFromHoriz) {}
 
 class target {
-  constructor(positionVector, radius = 38) {
+  constructor(positionVector, radius = 19) {
     this.position = positionVector;
     this.radius = radius;
     this.picture = loadImage("images/core/target-1.png");
