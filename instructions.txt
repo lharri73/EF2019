@@ -8,33 +8,33 @@
 ##image pathOfImage width height
 ## ...
 //1
-image images/Pangolin01.jpg 500 300
-CORRECT! 5.67 Points have been added to your score!
+Failure! Hint: The number in the top right is the answer.
+Correct! 
 image images/eqns/velocity_eqn.jpg 100 100
 //2
-failure
-Success #this is where we should put the 'instrucitonal part' of the app
-first instruction
+Failure! Hint: Divide the total distance by the time it takes to travel that distance. (Bottom Left Corner)
+Corrct! 
+Use the Equations in the bottom left corner to solve for the missing right variable.
 //3
-failure
-Success
-first instruction
+Failure! Start by writing out what you know. Then use the formula from the bottom left corner to figure out the missing variable.
+Correct!
+Use the Equations in the bottom left corner to solve for the missing right variable.
 //4
-failure
-Success
-first instruction
+Failure! Hint: Solve for time using the change in the Y distance and the Y acceleration. Then assume the initial velocity is 0 because the ball is moving from rest.
+Correct!
+Use the Equations in the bottom left corner to solve for the missing right variable.
 //5
-failure
-Success
-first instruction
+Failure! 
+Correct!
+Use the Equations in the bottom left corner to solve for the missing right variable.
 //6
 failure
 Success
-first instruction
+Use the Equations in the bottom left corner to solve for the missing right variable.
 //7
 failure
 success
-first instruction
+Use the Equations in the bottom left corner to solve for the missing right variable.
 //8
 ###This file must end with the next stage number, even if it doesn't exist
 ##otherwise we will get what is essentially a seg-fault

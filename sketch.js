@@ -111,13 +111,13 @@ function draw() {
   text("Stage: " + stageNumber, windowWidth - 90, textAscent() + 10);
   stroke(0);
   strokeWeight(3);
-  noFill();
-  rect(0, windowHeight, 160, -40);
-  strokeWeight(1);
-  fill(0);
-  textSize(12);
-  text("Score     : " + score, 10, windowHeight - textAscent() * 2);
-  text("High Score: " + highScore, 10, windowHeight - textAscent() + 5);
+ // noFill();
+ // rect(0, windowHeight, 160, -40);
+ //strokeWeight(1);
+ // fill(0);
+ // textSize(12);
+  //text("Score     : " + score, 10, windowHeight - textAscent() * 2);
+  //text("High Score: " + highScore, 10, windowHeight - textAscent() + 5);
 
   //determine what stage we're on
   switch (stageNumber) {

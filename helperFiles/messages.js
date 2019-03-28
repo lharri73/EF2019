@@ -60,7 +60,7 @@ function drawMessage(textForMessage, thisInstructionStage, anyKeyBool = false) {
 
 function drawImage(img, width, height) {
   var border = 10;
-  var positionX = windowWidth - width;
+  var positionX = 0;
   var positionY = windowHeight - height;
   image(img, positionX, positionY, width, height);
 }
