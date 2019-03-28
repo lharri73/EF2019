@@ -109,7 +109,7 @@ class cloud {
         this.image = loadImage("images/core/cloud4.png");
         break;
     }
-    this.velocity = cloudVelocity;
+    this.velocity = cloudVelocity + random(-0.5, 0.5);
   }
   draw() {
     fill(255);
@@ -141,7 +141,7 @@ class marsCloud {
         this.UFO = true;
         break;
     }
-    this.velocity = cloudVelocity;
+    this.velocity = cloudVelocity + random(-0.5, 0.5);
   }
   draw() {
     fill(255);
