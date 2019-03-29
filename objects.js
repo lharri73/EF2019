@@ -14,7 +14,7 @@ class target {
       this.picture,
       this.position.x - this.radius,
       this.position.y - this.radius,
-      this.radius * 4, //TODO: fix the images so they are the right size
+      this.radius * 2, //TODO: fix the images so they are the right size
       this.radius * 2
     );
     //ellipse(this.position.x, this.position.y, this.radius * 2);
@@ -38,8 +38,7 @@ class ball {
     ellipse(
       this.position.x,
       this.position.y,
-      this.radius * 2, //IDK why this is twice what I think it should be
-      this.radius * 2
+      this.radius * 2 //IDK why this is twice what I think it should be
     ); //TODO: not sure if I like the image she drew
     for (let dot of this.trail) {
       dot.draw();

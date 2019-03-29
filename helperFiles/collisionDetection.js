@@ -2,11 +2,8 @@ function isCollided(ball, thing) {
   //this is SUPER not efficient, but oh well. We can fix it later
   ///..or not, it's whatever
   if (thing instanceof target) {
-    var displacementVector = createVector(thing.radius, thing.radius);
-    var thingPosition = p5.Vector.add(thing.position, displacementVector);
-    var ballPosition = p5.Vector.add(ball.position, displacementVector);
     //edit this because the image is indexed at the top left corner, not the center
-    if (ballPosition.dist(thingPosition) < ball.radius + thing.radius) {
+    if (ball.position.dist(thing.position) < ball.radius + thing.radius) {
       return true;
     } else {
       return false;
