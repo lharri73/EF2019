@@ -138,10 +138,12 @@ function stage6KeyPressed(value) {
     instructionStage++;
   }
   if (instructionStage == 1) {
+    changeScore(25);
     incrimentStage();
   }
   if (instructionStage == 0) {
     resetStage();
+    changeScore(-5);
   }
 }
 

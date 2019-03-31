@@ -105,7 +105,7 @@ function stage1KeyPressed(value) {
     instructionStage++;
   }
   if (instructionStage == 1) {
-    changeScore(5.67);
+    changeScore(10);
     incrimentStage();
   }
   if (instructionStage == 0) {
