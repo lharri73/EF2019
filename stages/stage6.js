@@ -1,5 +1,6 @@
 function stage6Constructor() {
   //The constructor for the stage
+  createTextBox = true; //this might fix the textbox creation issue
   instructionStage = 2;
   maxInstruction = instructions[stageNumber].length;
   equationImage = loadImage("images/eqns/acceleration_eqns.jpg");
