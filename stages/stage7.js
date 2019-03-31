@@ -10,7 +10,10 @@ function stage7Constructor() {
     try {
       clouds.push(new cloud());
     } catch (err) {
-      console.error(err);
+      console.error(
+        "This error has been caught by the catch statement and is ignored\n" +
+          err
+      );
     }
   }
   //reset the clouds
@@ -37,7 +40,6 @@ function stage7Constructor() {
   versionID = floor(random(0, 2));
   /* 0: find angle (initialVelocity, accelerations, time, displacement x)
      1: find inital velocity (angle, accelerations, time, displacement x)*/
-  stage7Angle = roundToFixed(random(0, 80), 2);
   //stage7Velocity = roundToFixed(random(100, 300), 2);
   stage7Acceleration = random(100, 500);
   thisBall = new ball(
@@ -45,18 +47,19 @@ function stage7Constructor() {
     createVector(0, 0),
     createVector(0, stage7Acceleration)
   );
+  stage7Time = roundToFixed(random(2, 5), 2);
   stage7HorDisp = p5.Vector.dist(thisBall.position, thisTarget.position);
-  stage7Time = sqrt((2 * stage7HorDisp) / stage7Acceleration);
   var verVel = -0.5 * stage7Acceleration * stage7Time;
-
   var horVel = stage7HorDisp / stage7Time;
   stage7Velocity = createVector(horVel, verVel);
-  console.log(stage7Velocity);
 
   if (versionID == 0) {
-    console.log("angle", stage7Angle);
+    console.log(
+      "angle",
+      roundToFixed(-1 * degrees(stage7Velocity.heading()), 2)
+    );
   } else {
-    console.log(stage7Velocity);
+    console.log(roundToFixed(stage7Velocity.mag(), 2));
   }
   //console.log(velocityVector);
 }
@@ -111,7 +114,7 @@ function drawObjectivesStage7() {
   stroke(0);
   strokeWeight(3);
   noFill();
-  rect(0, 0, 325, 80);
+  rect(0, 0, 250, 95);
   strokeWeight(1);
   fill(0);
   textSize(12);
@@ -126,37 +129,53 @@ function drawObjectivesStage7() {
     textAscent() * 3 + 20
   );
   text("change in x      : " + stage7HorDisp + "m", 10, textAscent() * 4 + 25);
+
   if (versionID == 0) {
     text(
       "Initial Velocity : " + roundToFixed(stage7Velocity.mag(), 2) + "m/s",
       10,
       textAscent() + 10
     );
+    text("Angle            : ?", 10, textAscent() * 5 + 30);
   } else {
     text(
-      "angle            : " + roundToFixed(stage7Velocity.heading(), 2) + "°",
+      "angle            : " +
+        roundToFixed(-1 * degrees(stage7Velocity.heading()), 2) +
+        "°",
       10,
       textAscent() + 10
     );
+    text("Initial Velocity : ?", 10, textAscent() * 5 + 30);
   }
 }
 
 function stage7KeyPressed(value) {
-  /*this is called when a key is pressed and it is on this stage
-   *value has the value of the key pressed,
-   * we can figure out which number each key is by calling
-   *console.log(value) and press a key and note the number in the console
-   */
+  /* 0: find angle (initialVelocity, accelerations, time, displacement x)
+     1: find inital velocity (angle, accelerations, time, displacement x)*/
   if (instructionStage > maxInstruction) {
     switch (value) {
-      case 32: //32 = space
-        thisBall.changeVelocity(stage7Velocity);
-        thisBall.isActive = !thisBall.isActive;
+      case 32:
+        //32 = space
         break;
       case 13:
         //handle enter
+        switch (versionID) {
+          case 0:
+            var newHorVel =
+              stage7Velocity.mag() * cos(radians(parseFloat(textBox.value())));
+            var newVerVel =
+              stage7Velocity.mag() * sin(radians(parseFloat(textBox.value())));
+            stage7Velocity = createVector(newHorVel, -1 * newVerVel);
+            thisBall.changeVelocity(stage7Velocity);
+            thisBall.isActive = true;
+            break;
+          case 1:
+            stage7Velocity.setMag(parseFloat(textBox.value()));
+            thisBall.changeVelocity(stage7Velocity);
+            thisBall.isActive = true;
+            break;
+        }
         break;
-      default:
     }
     return;
   }
