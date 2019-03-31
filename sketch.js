@@ -198,6 +198,7 @@ function draw() {
 }
 
 function incrimentStage() {
+  textBox.remove();
   if (stageNumber == maxStage) {
     //you win and have made it through all of the stages!
     //determine if we reset or just keep it at this stage
@@ -215,6 +216,7 @@ function incrimentStage() {
 function resetStage() {
   constructorRun = false;
   createTextBox = true;
+  textBox.remove();
 }
 
 function mouseClicked() {

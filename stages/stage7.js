@@ -5,18 +5,17 @@ function stage7Constructor() {
   newBackgroundColor = color("#87cefa");
   backgroundColorChanged = true;
   equationImage = loadImage("images/eqns/acceleration_eqns.jpg");
-
+  clouds = [];
+  for (i = 0; i < 6; i++) {
+    try {
+      clouds.push(new cloud());
+    } catch (err) {
+      console.error(err);
+    }
+  }
   //reset the clouds
   if (!createTextBox) {
     //this is a trick to prevent a constructor error...
-    clouds = [];
-    for (var i = 0; i < 6; i++) {
-      try {
-        clouds.push(new cloud());
-      } catch (err) {
-        console.log("cloud generation error, skipping");
-      }
-    }
   }
   var yPosition = (windowHeight * 2) / 3;
   targetPosition = createVector(
@@ -166,11 +165,9 @@ function stage7KeyPressed(value) {
     instructionStage++;
   }
   if (instructionStage == 1) {
-    textBox.remove();
     incrimentStage();
   }
   if (instructionStage == 0) {
-    textBox.remove();
     resetStage();
   }
 }

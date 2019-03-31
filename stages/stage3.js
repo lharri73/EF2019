@@ -160,11 +160,9 @@ function stage3KeyPressed(value) {
     instructionStage++;
   }
   if (instructionStage == 1) {
-    textBox.remove();
     incrimentStage();
   }
   if (instructionStage == 0) {
-    textBox.remove();
     resetStage();
   }
 }

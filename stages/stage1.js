@@ -105,12 +105,10 @@ function stage1KeyPressed(value) {
     instructionStage++;
   }
   if (instructionStage == 1) {
-    textBox.remove();
     changeScore(5.67);
     incrimentStage();
   }
   if (instructionStage == 0) {
-    textBox.remove();
     resetStage();
   }
 }
