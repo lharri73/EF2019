@@ -89,7 +89,7 @@ function drawObjectivesStage6() {
   stroke(0);
   strokeWeight(3);
   noFill();
-  rect(0, 0, 255, 80);
+  rect(0, 0, 355, 80);
   strokeWeight(1);
   fill(0);
   textSize(12);
