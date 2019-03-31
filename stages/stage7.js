@@ -11,8 +11,11 @@ function stage7Constructor() {
     //this is a trick to prevent a constructor error...
     clouds = [];
     for (var i = 0; i < 6; i++) {
-      console.log("creating new cloud");
-      clouds.push(new cloud());
+      try {
+        clouds.push(new cloud());
+      } catch (err) {
+        console.log("cloud generation error, skipping");
+      }
     }
   }
   var yPosition = (windowHeight * 2) / 3;

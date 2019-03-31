@@ -21,16 +21,16 @@ function stage1Constructor() {
   textBox.style("color", "#ffffff"); //text color
   textBox.style("background-color", backgroundColor.toString()); //background color
   textBox.style("border", "2px solid #ffffff"); //border styling
-    textBox.attribute("type", "number")
+  textBox.attribute("type", "number");
   textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
   textBox.size(300, textAscent()); //size of the textbox
   //----------------------------------------------------------------------------
   //initialize game values
   velocityGoal = floor(random(500, 1000));
 
-  if(DEBUG){
-  console.log(velocityGoal);
-}
+  if (DEBUG) {
+    console.log(velocityGoal);
+  }
 }
 
 function drawStage1() {

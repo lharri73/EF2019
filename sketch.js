@@ -1,6 +1,6 @@
 //this is used to prevent the game from running a stage that doesn't exist
-let clouds = [];
-
+clouds = [];
+answer = 0;
 score = 0;
 highScore = 0;
 
@@ -16,13 +16,6 @@ function preload() {
   menlo = loadFont("assets/Menlo-Regular.ttf");
   /*loadStrings is an async function, however it will be complete
    *because preload includes an await at the end*/
-}
-
-function drawBackgroundObjects() {
-  //TODO: impliment inclusion of clouds
-  for (cloud of clouds) {
-    cloud.draw();
-  }
 }
 
 function stringsLoaded() {
@@ -90,6 +83,15 @@ function setup() {
   createTextBox = false;
   score = 0;
   cookieStorageLoad();
+  for (var i = 0; i < 6; i++) {
+    clouds.push(new cloud());
+  }
+}
+
+function drawBackgroundObjects() {
+  for (cloud of clouds) {
+    cloud.draw();
+  }
 }
 
 function draw() {
@@ -103,21 +105,31 @@ function draw() {
       createTextBox = true;
     }
   }
+
   background(backgroundColor);
   drawBackgroundObjects(); //this is where clouds are drawn
   textSize(18);
   stroke(0);
   fill(0);
+  strokeWeight(1);
   text("Stage: " + stageNumber, windowWidth - 90, textAscent() + 10);
   stroke(0);
   strokeWeight(3);
- // noFill();
- // rect(0, windowHeight, 160, -40);
- //strokeWeight(1);
- // fill(0);
- // textSize(12);
-  //text("Score     : " + score, 10, windowHeight - textAscent() * 2);
-  //text("High Score: " + highScore, 10, windowHeight - textAscent() + 5);
+  noFill();
+  rect(windowWidth - 140, windowHeight, 140, -40);
+  strokeWeight(1);
+  fill(0);
+  textSize(12);
+  text(
+    "Score     : " + score,
+    windowWidth - 130,
+    windowHeight - textAscent() * 2
+  );
+  text(
+    "High Score: " + highScore,
+    windowWidth - 130,
+    windowHeight - textAscent() + 5
+  );
 
   //determine what stage we're on
   switch (stageNumber) {
@@ -229,6 +241,52 @@ function mouseClicked() {
     case 7:
       stage7MouseClicked();
       break;
+  }
+}
+
+function keyTyped() {
+  if (DEBUG) {
+    switch (key) {
+      case "!":
+        //stage 1
+        stageNumber = 1;
+        constructorRun = false;
+        break;
+      case "@":
+        stageNumber = 2;
+        constructorRun = false;
+        //stage 2
+        break;
+      case "#":
+        stageNumber = 3;
+        constructorRun = false;
+        //stage 3
+        break;
+      case "$":
+        stageNumber = 4;
+        constructorRun = false;
+        break;
+      case "%":
+        stageNumber = 5;
+        constructorRun = false;
+        //stage 5
+        break;
+      case "^":
+        //stage 6:
+        stageNumber = 6;
+        constructorRun = false;
+        break;
+      case "&":
+        //stage 7
+        stageNumber = 7;
+        constructorRun = false;
+        break;
+      case "*":
+        //stage 8
+        //stageNumber = 8;
+        //constructorRun = false;
+        break;
+    }
   }
 }
 

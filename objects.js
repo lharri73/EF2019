@@ -91,7 +91,7 @@ class wall {
 }
 
 class cloud {
-  constructor(cloudVelocity = 1) {
+  constructor() {
     this.position = createVector(random(-100, windowWidth), random(0, 100));
     var cloudType = floor(random(4));
     switch (cloudType) {
@@ -108,7 +108,7 @@ class cloud {
         this.image = loadImage("images/core/cloud4.png");
         break;
     }
-    this.velocity = cloudVelocity + random(-0.5, 0.5);
+    this.velocity = random(0.5, 1.5);
   }
   draw() {
     fill(255);

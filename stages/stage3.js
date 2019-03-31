@@ -23,7 +23,7 @@ function stage3Constructor() {
   textBox.style("color", "#ffffff"); //text color
   textBox.style("background-color", backgroundColor.toString()); //background color
   textBox.style("border", "2px solid #ffffff"); //border styling
-    textBox.attribute("type", "number")
+  textBox.attribute("type", "number");
   textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
   textBox.size(300, textAscent()); //size of the textbox
 
@@ -46,24 +46,23 @@ function stage3Constructor() {
     createVector(stage3Accel, 0)
   );
 
-  if(DEBUG){
-   switch (versionID) {
-     case 0:
-     console.log(stage3Time);
-     break;
-     case 1:
-     console.log(stage3Vel);
-     break;
-     case 2:
-     console.log(stage3Disp);
-     break;
-     case 3:
-       console.log(stage3Accel);
-       break;
-     default:
-
-   }
- }
+  if (DEBUG) {
+    switch (versionID) {
+      case 0:
+        console.log(stage3Time);
+        break;
+      case 1:
+        console.log(stage3Vel);
+        break;
+      case 2:
+        console.log(stage3Disp);
+        break;
+      case 3:
+        console.log(stage3Accel);
+        break;
+      default:
+    }
+  }
 }
 
 //------------------------------------------------------------------------------
