@@ -35,3 +35,12 @@ function cookieStorageLoad() {
     }
   }
 }
+
+function resetCookies() {
+  score = 0;
+  highScore = 0;
+  var a = new Date(new Date().getTime() + 1000 * 2 * 60 * 60 * 24);
+  document.cookie = "highestStage=1; expires=" + a.toGMTString() + "; path=/";
+  document.cookie = "highestScore=0; expires=" + a.toGMTString() + "; path=/";
+  document.cookie = "currentScore=0; expires=" + a.toGMTString() + "; path=/";
+}

@@ -57,6 +57,9 @@ class ball {
   changeVelocity(newVelocity) {
     this.velocity = newVelocity;
   }
+  changePosition(newPosition) {
+    this.position = newPosition;
+  }
 }
 
 class Dot {

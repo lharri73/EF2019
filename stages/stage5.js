@@ -43,6 +43,8 @@ function stage5Constructor() {
   if (DEBUG) {
     console.log(stage5InitVel);
   }
+  timerIsActive = false;
+  timeElapsed = 0.0;
 }
 
 function drawStage5() {
@@ -58,6 +60,10 @@ function drawStage5() {
     textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
     textBox.size(300, textAscent()); //size of the textbox
     createTextBox = false;
+  }
+
+  if (timerIsActive) {
+    drawCurrentElements5();
   }
 
   //determines if the game loop should be run, or if the instructions should be shown
@@ -83,6 +89,7 @@ function stage5LoopAndCheck() {
   thisTarget.draw();
   if (isCollided(thisBall, thisTarget)) {
     thisBall.isActive = false;
+    clearInterval(timer);
     instructionStage = 1;
   }
   if (outOfBounds(thisBall)) {
@@ -137,6 +144,8 @@ function stage5KeyPressed(value) {
         textBox.attribute("hidden", true);
         thisBall.changeVelocity(createVector(enteredValue, 0));
         thisBall.isActive = true;
+        timerIsActive = true;
+        timer = setInterval(incrimentTimer, 10);
         break;
     }
   }
@@ -145,6 +154,7 @@ function stage5KeyPressed(value) {
     instructionStage++;
   }
   if (instructionStage == 1) {
+    clearInterval(timer);
     changeScore(20);
     incrimentStage();
   }
@@ -165,4 +175,43 @@ function stage5Resized() {
 }
 function drawImageStage5() {
   drawImage(equationImage, 150, 150);
+}
+//__________________________________________________________
+function drawCurrentElements5() {
+  currentDisplacement = roundToFixed(
+    thisBall.position.dist(thisTarget.position) -
+      thisTarget.radius -
+      thisBall.radius,
+    2
+  );
+  if (currentDisplacement < 0.0) {
+    //catch if the displacement is less than zero
+    currentDisplacement = 0;
+  }
+  textSize(20);
+  stroke(18, 186, 0);
+  fill(18, 186, 0);
+  textAlign(CENTER);
+  text(
+    "Time: " +
+      roundToFixed(timeElapsed, 2) +
+      "s" +
+      "\n" +
+      "x Displacement: " +
+      String(roundToFixed(thisTarget.position.x - thisBall.position.x), 2) +
+      "m\n" +
+      "y Displacement: " +
+      String(roundToFixed(thisTarget.position.y - thisBall.position.y), 2) +
+      "m\n" +
+      "Acceleration: " +
+      roundToFixed(thisBall.acceleration.mag(), 2) +
+      "m/s^2" +
+      "\n" +
+      "velocity: " +
+      roundToFixed(thisBall.velocity.mag(), 2) +
+      "m/s",
+    windowWidth / 2,
+    windowHeight / 2 - 75
+  );
+  textAlign(LEFT);
 }

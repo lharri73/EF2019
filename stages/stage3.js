@@ -60,7 +60,6 @@ function stage3Constructor() {
       case 3:
         console.log(stage3Accel);
         break;
-      default:
     }
   }
 }
@@ -68,6 +67,9 @@ function stage3Constructor() {
 //------------------------------------------------------------------------------
 function drawStage3() {
   //the draw function, called every frame
+  if (timerIsActive) {
+    drawCurrentElements3();
+  }
   if (instructionStage >= instructions[stageNumber].length) {
     stage3LoopAndCheck();
   }
@@ -78,10 +80,6 @@ function drawStage3() {
       instructionStage,
       true
     );
-  }
-
-  if (timerIsActive) {
-    drawCurrentElements3();
   }
 }
 
@@ -260,6 +258,9 @@ function drawCurrentElements3() {
     currentDisplacement = 0;
   }
   textSize(20);
+  stroke(18, 186, 0);
+  fill(18, 186, 0);
+  textAlign(CENTER);
   text(
     "Time: " +
       roundToFixed(timeElapsed, 2) +
@@ -276,7 +277,8 @@ function drawCurrentElements3() {
       "velocity: " +
       roundToFixed(thisBall.velocity.mag(), 2) +
       "m/s",
-    windowWidth / 2 - 146,
+    windowWidth / 2,
     windowHeight / 2
   );
+  textAlign(LEFT);
 }

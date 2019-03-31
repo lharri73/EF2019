@@ -4,6 +4,7 @@ function isCollided(ball, thing) {
   if (thing instanceof target) {
     //edit this because the image is indexed at the top left corner, not the center
     if (ball.position.dist(thing.position) < ball.radius + thing.radius) {
+      ball.changePosition(thing.position);
       return true;
     } else {
       return false;

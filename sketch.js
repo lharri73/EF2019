@@ -1,8 +1,7 @@
 //this is used to prevent the game from running a stage that doesn't exist
 clouds = [];
 answer = 0;
-score = 0;
-highScore = 0;
+let score, highScore;
 
 maxStage = 7;
 instructions = []; //creates a global variable
@@ -82,7 +81,12 @@ function setup() {
   backgroundColorChanged = false; //set this to true when the background color is changed
   createTextBox = false;
   score = 0;
+  highScore = 0;
   cookieStorageLoad();
+  if (DEBUG) {
+    score = Infinity;
+    highScore = Infinity;
+  }
   for (var i = 0; i < 6; i++) {
     clouds.push(new cloud());
   }
@@ -255,40 +259,49 @@ function keyTyped() {
         //stage 1
         stageNumber = 1;
         constructorRun = false;
+        console.log("shifting to new stage");
         break;
       case "@":
         stageNumber = 2;
         constructorRun = false;
+        console.log("shifting to new stage");
         //stage 2
         break;
       case "#":
         stageNumber = 3;
         constructorRun = false;
+        console.log("shifting to new stage");
         //stage 3
         break;
       case "$":
         stageNumber = 4;
         constructorRun = false;
+        console.log("shifting to new stage");
         break;
       case "%":
         stageNumber = 5;
         constructorRun = false;
+        console.log("shifting to new stage");
         //stage 5
         break;
       case "^":
         //stage 6:
         stageNumber = 6;
         constructorRun = false;
+        console.log("shifting to new stage");
         break;
+        0;
       case "&":
         //stage 7
         stageNumber = 7;
         constructorRun = false;
+        console.log("shifting to new stage");
         break;
       case "*":
         //stage 8
         //stageNumber = 8;
         //constructorRun = false;
+        console.log("shifting to new stage");
         break;
     }
   }

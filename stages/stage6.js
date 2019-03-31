@@ -34,6 +34,8 @@ function stage6Constructor() {
   if (DEBUG) {
     console.log(stage6InitVel);
   }
+  timerIsActive = false;
+  timeElapsed = 0.0;
 }
 
 function drawStage6() {
@@ -48,6 +50,9 @@ function drawStage6() {
     textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
     textBox.size(300, textAscent()); //size of the textbox
     createTextBox = false;
+  }
+  if (timerIsActive) {
+    drawCurrentElements5();
   }
   //determines if the game loop should be run, or if the instructions should be shown
   if (instructionStage >= instructions[stageNumber].length) {
@@ -72,6 +77,7 @@ function stage6LoopAndCheck() {
   thisTarget.draw();
   if (isCollided(thisBall, thisTarget)) {
     thisBall.isActive = false;
+    clearInterval(timer);
     instructionStage = 1;
   }
   if (outOfBounds(thisBall)) {
@@ -80,12 +86,12 @@ function stage6LoopAndCheck() {
 }
 
 function drawObjectivesStage6() {
-  stroke(255);
+  stroke(0);
   strokeWeight(3);
   noFill();
   rect(0, 0, 255, 80);
   strokeWeight(1);
-  fill(255);
+  fill(0);
   textSize(12);
   text(
     "x Displacement           : " + stage6HorDisp + "m",
@@ -128,6 +134,8 @@ function stage6KeyPressed(value) {
         textBox.attribute("hidden", true);
         thisBall.changeVelocity(createVector(enteredValue, 0));
         thisBall.isActive = true;
+        timerIsActive = true;
+        timer = setInterval(incrimentTimer, 10);
         break;
       default:
     }
@@ -139,6 +147,7 @@ function stage6KeyPressed(value) {
   }
   if (instructionStage == 1) {
     changeScore(25);
+    clearInterval(timer);
     incrimentStage();
   }
   if (instructionStage == 0) {
@@ -155,4 +164,43 @@ function stage6Resized() {
   //called when the window is resized and we're on stage number
   //allows changing the size of stage-specific objects
   textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
+}
+
+function drawCurrentElements6() {
+  currentDisplacement = roundToFixed(
+    thisBall.position.dist(thisTarget.position) -
+      thisTarget.radius -
+      thisBall.radius,
+    2
+  );
+  if (currentDisplacement < 0.0) {
+    //catch if the displacement is less than zero
+    currentDisplacement = 0;
+  }
+  textSize(20);
+  stroke(18, 186, 0);
+  fill(18, 186, 0);
+  textAlign(CENTER);
+  text(
+    "Time: " +
+      roundToFixed(timeElapsed, 2) +
+      "s" +
+      "\n" +
+      "x Displacement: " +
+      String(roundToFixed(thisTarget.position.x - thisBall.position.x), 2) +
+      "m\n" +
+      "y Displacement: " +
+      String(roundToFixed(thisTarget.position.y - thisBall.position.y), 2) +
+      "m\n" +
+      "Acceleration: " +
+      roundToFixed(thisBall.acceleration.mag(), 2) +
+      "m/s^2" +
+      "\n" +
+      "velocity: " +
+      roundToFixed(thisBall.velocity.mag(), 2) +
+      "m/s",
+    windowWidth / 2,
+    windowHeight / 2 - 75
+  );
+  textAlign(LEFT);
 }

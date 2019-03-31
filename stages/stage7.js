@@ -61,6 +61,8 @@ function stage7Constructor() {
   } else {
     console.log(roundToFixed(stage7Velocity.mag(), 2));
   }
+  timerIsActive = false;
+  timeElapsed = 0.0;
   //console.log(velocityVector);
 }
 
@@ -89,6 +91,9 @@ function drawStage7() {
       true
     );
   }
+  if (timerIsActive) {
+    drawCurrentElements7();
+  }
 }
 
 //this is the actual game loop, run if there are no instructions to show
@@ -101,6 +106,7 @@ function stage7LoopAndCheck() {
   thisWall.draw();
   if (isCollided(thisBall, thisTarget)) {
     thisBall.isActive = false;
+    clearInterval(timer);
     instructionStage = 1;
   }
   if (outOfBounds(thisBall)) {
@@ -159,6 +165,8 @@ function stage7KeyPressed(value) {
         break;
       case 13:
         //handle enter
+        timerIsActive = true;
+        timer = setInterval(incrimentTimer, 10);
         switch (versionID) {
           case 0:
             var newHorVel =
@@ -205,4 +213,46 @@ function stage7Resized() {
   //called when the window is resized and we're on stage number
   //allows changing the size of stage-specific objects
   textBox.position(windowWidth / 2 - 150, windowHeight / 2 - 300); //position of lower left corner
+}
+
+function drawCurrentElements7() {
+  currentDisplacement = roundToFixed(
+    thisBall.position.dist(thisTarget.position) -
+      thisTarget.radius -
+      thisBall.radius,
+    2
+  );
+  if (currentDisplacement < 0.0) {
+    //catch if the displacement is less than zero
+    currentDisplacement = 0;
+  }
+  textSize(20);
+  stroke(18, 186, 0);
+  fill(18, 186, 0);
+  textAlign(CENTER);
+  text(
+    "Time: ~" +
+      roundToFixed(timeElapsed, 2) +
+      "s" +
+      "\n" +
+      "x Displacement: " +
+      String(roundToFixed(thisTarget.position.x - thisBall.position.x), 2) +
+      "m\n" +
+      "y Displacement: " +
+      String(roundToFixed(thisTarget.position.y - thisBall.position.y), 2) +
+      "m\n" +
+      "Acceleration: " +
+      roundToFixed(thisBall.acceleration.mag(), 2) +
+      "m/s^2" +
+      "\n" +
+      "x velocity: " +
+      roundToFixed(thisBall.velocity.x, 2) +
+      "m/s\n" +
+      "y velocity: " +
+      roundToFixed(-1 * thisBall.velocity.y, 2) +
+      "m/s\n",
+    windowWidth / 2,
+    windowHeight / 2 - 75
+  );
+  textAlign(LEFT);
 }

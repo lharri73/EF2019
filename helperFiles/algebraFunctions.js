@@ -1,7 +1,6 @@
 //rounds the input number to the given decimal places
 function roundToFixed(number, precision) {
-  var m = pow(10, precision);
-  return round(number * m) / m;
+  return parseFloat(Math.round(number * 100) / 100).toFixed(2);
 }
 
 function outOfBounds(object) {

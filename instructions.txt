@@ -6,6 +6,8 @@
 ##
 ##images look like this:
 ##image pathOfImage width height
+##OR
+##description path/to/image/here width height <description of the image to appear below it>
 ## ...
 //1
 Failure! Hint: The number in the top right is the answer.
