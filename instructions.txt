@@ -9,11 +9,11 @@
 ## ...
 //1
 Failure! Hint: The number in the top right is the answer.
-Correct! 
+Correct!
 image images/eqns/velocity_eqn.jpg 100 100
 //2
 Failure! Hint: Divide the total distance by the time it takes to travel that distance. (Bottom Left Corner)
-Corrct! 
+Corrct!
 Use the Equations in the bottom left corner to solve for the missing right variable.
 //3
 Failure! Start by writing out what you know. Then use the formula from the bottom left corner to figure out the missing variable.
@@ -24,7 +24,7 @@ Failure! Hint: Solve for time using the change in the Y distance and the Y accel
 Correct!
 Use the Equations in the bottom left corner to solve for the missing right variable.
 //5
-Failure! 
+Failure!
 Correct!
 Use the Equations in the bottom left corner to solve for the missing right variable.
 //6
@@ -34,6 +34,7 @@ Use the Equations in the bottom left corner to solve for the missing right varia
 //7
 failure
 success
+description images/Pangolin01.jpg 500 300 12312312313 1231231 123 123
 ##NOTE: for stage 7, it is possible for the ball to go above the screen, but only above
 ##We also need to add sin/cos/tan stuff to this...
 Use the Equations in the bottom left corner to solve for the missing right variable.

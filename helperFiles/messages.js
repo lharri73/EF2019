@@ -27,6 +27,38 @@ function drawMessage(textForMessage, thisInstructionStage, anyKeyBool = false) {
     //rect(0, 0, 100, 100);
   } else if (textForMessage.startsWith("description")) {
     thisInstruction = textForMessage.slice(12);
+    thisInstruction = customSplit(thisInstruction, " ", 3);
+    if (previousInstruction != thisInstructionStage) {
+      thisImage = loadImage(thisInstruction[0]);
+      previousInstruction = thisInstructionStage;
+    }
+    image(
+      thisImage,
+      windowWidth / 2 - parseInt(thisInstruction[1]) / 2,
+      windowHeight / 2 - 250,
+      parseInt(thisInstruction[1]),
+      parseInt(thisInstruction[2])
+    );
+    var width = parseInt(thisInstruction[1]);
+    var height = parseInt(thisInstruction[2]);
+    noFill();
+    strokeWeight(3);
+    rect(
+      windowWidth / 2 - width / 2 - 10,
+      windowHeight / 2 - 260,
+      width + 20,
+      height + 200
+    );
+    strokeWeight(1);
+    fill(0);
+    textSize(18);
+    text(
+      thisInstruction[3],
+      windowWidth / 2 - width / 2,
+      windowHeight / 2 - 240 + height,
+      width,
+      height
+    );
   } else {
     noFill();
     stroke(0);
@@ -67,4 +99,17 @@ function drawImage(img, width, height) {
 
 function incrimentTimer() {
   timeElapsed += 0.01;
+}
+
+function customSplit(str, separator, limit) {
+  str = str.split(separator);
+
+  if (str.length > limit) {
+    var ret = str.splice(0, limit);
+    ret.push(str.join(separator));
+
+    return ret;
+  }
+
+  return str;
 }
