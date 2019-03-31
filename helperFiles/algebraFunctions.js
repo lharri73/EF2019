@@ -8,11 +8,16 @@ function outOfBounds(object) {
   if (object.position.x > windowWidth || object.position.x < 0) {
     return true;
   }
-  if (object.position.y > windowHeight || object.position.y < 0) {
+  //for stage 7, it's possible to go ABOVE the screen, there simply isn't enough room on the canvas
+  if (
+    object.position.y > windowHeight ||
+    (stageNumber != 7 && object.position.y < 0)
+  ) {
     return true;
   }
   return false;
 }
+
 function addHexColor(c1, c2) {
   c1 = removeHash(c1);
   c2 = removeHash(c2);
