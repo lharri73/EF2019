@@ -34,6 +34,8 @@ Use the Equations in the bottom left corner to solve for the missing right varia
 //7
 failure
 success
+##NOTE: for stage 7, it is possible for the ball to go above the screen, but only above
+##We also need to add sin/cos/tan stuff to this...
 Use the Equations in the bottom left corner to solve for the missing right variable.
 //8
 ###This file must end with the next stage number, even if it doesn't exist
