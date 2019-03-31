@@ -40,6 +40,9 @@ function drawMessage(textForMessage, thisInstructionStage, anyKeyBool = false) {
       parseInt(thisInstruction[2])
     );
     var width = parseInt(thisInstruction[1]);
+    if (width < 500) {
+      width = 500;
+    }
     var height = parseInt(thisInstruction[2]);
     noFill();
     strokeWeight(3);
