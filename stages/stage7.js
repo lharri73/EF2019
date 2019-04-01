@@ -5,17 +5,6 @@ function stage7Constructor() {
   newBackgroundColor = color("#87cefa");
   backgroundColorChanged = true;
   equationImage = loadImage("images/eqns/acceleration_eqns.jpg");
-  clouds = [];
-  for (i = 0; i < 6; i++) {
-    try {
-      clouds.push(new cloud());
-    } catch (err) {
-      console.error(
-        "This error has been caught by the catch statement and is ignored\n" +
-          err
-      );
-    }
-  }
   //reset the clouds
   if (!createTextBox) {
     //this is a trick to prevent a constructor error...

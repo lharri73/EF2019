@@ -1,5 +1,6 @@
 //this is used to prevent the game from running a stage that doesn't exist
 clouds = [];
+marsClouds = [];
 answer = 0;
 let score, highScore;
 
@@ -89,13 +90,20 @@ function setup() {
   }
   for (var i = 0; i < 6; i++) {
     clouds.push(new cloud());
+    marsClouds.push(new marsCloud());
   }
 }
 
 function drawBackgroundObjects() {
+  if(stageNumber == 5 || stageNumber \\ 6){
+    for(cloud of marsClouds){
+      cloud.draw();
+    }
+  }else{
   for (cloud of clouds) {
     cloud.draw();
   }
+}
 }
 
 function draw() {

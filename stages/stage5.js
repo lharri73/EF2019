@@ -5,10 +5,6 @@ function stage5Constructor() {
   equationImage = loadImage("images/eqns/acceleration_eqns.jpg");
   //TODO: find new color cause this is garbage.
   //looking for a mars-like color
-  clouds = [];
-  for (i = 0; i < 6; i++) {
-    clouds.push(new marsCloud());
-  }
   newBackgroundColor = color("#c1440e");
   backgroundColorChanged = true;
   ballPosition = createVector(
