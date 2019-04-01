@@ -37,8 +37,8 @@ Correct! +25 Points!
 Use the Equations in the bottom left corner to solve for the missing variable.
 //7
 Failure! Hint: Use the trajectory equation!
-Correct! +30 Points!
-description images/Pangolin01.jpg 500 300 description text here
+Correct! +30 Points! Press any key to return to Stage 1!
+
 ##NOTE: for stage 7, it is possible for the ball to go above the screen, but only above
 ##We also need to add sin/cos/tan stuff to this...
 Use the Equations in the bottom left corner to solve for the missing right variable.

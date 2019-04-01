@@ -4,7 +4,7 @@ function stage7Constructor() {
   maxInstruction = instructions[stageNumber].length;
   newBackgroundColor = color("#87cefa");
   backgroundColorChanged = true;
-  equationImage = loadImage("images/eqns/acceleration_eqns.jpg");
+  equationImage = loadImage("images/eqns/trajectory.png");
   //reset the clouds
   if (!createTextBox) {
     //this is a trick to prevent a constructor error...
@@ -199,7 +199,7 @@ function stage7MouseClicked() {
 }
 
 function drawImageStage7() {
-  drawImage(equationImage, 150, 150);
+    drawImage(equationImage, 400, 100);
 }
 
 function stage7Resized() {
