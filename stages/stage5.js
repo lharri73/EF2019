@@ -3,8 +3,6 @@ function stage5Constructor() {
   instructionStage = 2;
   maxInstruction = instructions[stageNumber].length;
   equationImage = loadImage("images/eqns/acceleration_eqns.jpg");
-  //TODO: find new color cause this is garbage.
-  //looking for a mars-like color
   newBackgroundColor = color("#c1440e");
   backgroundColorChanged = true;
   ballPosition = createVector(
