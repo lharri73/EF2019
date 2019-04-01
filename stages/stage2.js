@@ -144,7 +144,7 @@ function stage2KeyPressed(value) {
                 thisBall.velocity = createVector(stage2Velocity, 0);
                 thisBall.isActive = true;
                 timerIsActive = true;
-                timer = setInterval(incrimentTimer, 10);
+                timer = setInterval(incrimentTimer, 50);
               } else {
                 instructionStage = 0;
               }
@@ -155,7 +155,7 @@ function stage2KeyPressed(value) {
                 thisBall.velocity = createVector(stage2Velocity, 0);
                 thisBall.isActive = true;
                 timerIsActive = true;
-                timer = setInterval(incrimentTimer, 10);
+                timer = setInterval(incrimentTimer, 50);
               } else {
                 instructionStage = 0;
               }
@@ -166,7 +166,7 @@ function stage2KeyPressed(value) {
                 thisBall.velocity = createVector(stage2Velocity, 0);
                 thisBall.isActive = true;
                 timerIsActive = true;
-                timer = setInterval(incrimentTimer, 10);
+                timer = setInterval(incrimentTimer, 50);
               } else {
                 instructionStage = 0;
               }

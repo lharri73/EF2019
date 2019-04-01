@@ -101,7 +101,7 @@ function drawImage(img, width, height) {
 }
 
 function incrimentTimer() {
-  timeElapsed += 0.01;
+  timeElapsed += 0.05;
 }
 
 function customSplit(str, separator, limit) {

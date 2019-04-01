@@ -244,7 +244,7 @@ function correctAnswer3() {
   textBox.attribute("hidden", true);
   thisBall.isActive = true;
   timerIsActive = true;
-  timer = setInterval(incrimentTimer, 10);
+  timer = setInterval(incrimentTimer, 50);
 }
 
 function drawCurrentElements3() {

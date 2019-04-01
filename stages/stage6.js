@@ -136,7 +136,7 @@ function stage6KeyPressed(value) {
           thisBall.changeVelocity(createVector(enteredValue, 0));
           thisBall.isActive = true;
           timerIsActive = true;
-          timer = setInterval(incrimentTimer, 10);
+          timer = setInterval(incrimentTimer, 50);
         }
         break;
       default:

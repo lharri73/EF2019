@@ -156,7 +156,7 @@ function stage7KeyPressed(value) {
         //handle enter
         if (!thisBall.isActive) {
           timerIsActive = true;
-          timer = setInterval(incrimentTimer, 10);
+          timer = setInterval(incrimentTimer, 50);
           switch (versionID) {
             case 0:
               var newHorVel =

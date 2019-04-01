@@ -42,12 +42,13 @@ class ball {
   }
   update() {
     if (this.isActive) {
+      var thisFrameRate = parseFloat(roundToFixed(getFrameRate(), 2));
       //offset because this happens every frame, not every second
       //ever frame is 1/60th of a second
       let currentTrail = new Dot(this.position.x, this.position.y);
       this.trail.push(currentTrail);
-      this.velocity.add(p5.Vector.div(this.acceleration, getFrameRate()));
-      this.position.add(p5.Vector.div(this.velocity, getFrameRate()));
+      this.velocity.add(p5.Vector.div(this.acceleration, thisFrameRate));
+      this.position.add(p5.Vector.div(this.velocity, thisFrameRate));
       console.log(getFrameRate());
     }
   }
