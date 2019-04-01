@@ -305,6 +305,9 @@ function keyTyped() {
         break;
     }
   }
+  if (key == "C") {
+    resetCookies();
+  }
 }
 
 function keyPressed() {
