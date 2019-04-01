@@ -133,44 +133,45 @@ function stage2KeyPressed(value) {
   if (instructionStage > maxInstruction) {
     switch (value) {
       case 32: //32 = space
-        thisBall.isActive = !thisBall.isActive;
         break;
       case 13: //13 = Enter
-        enteredValue = parseFloat(textBox.value());
-        switch (versionID) {
-          case 0:
-            if (stage2Time == enteredValue) {
-              textBox.attribute("hidden", true);
-              thisBall.velocity = createVector(stage2Velocity, 0);
-              thisBall.isActive = true;
-              timerIsActive = true;
-              timer = setInterval(incrimentTimer, 10);
-            } else {
-              instructionStage = 0;
-            }
-            break;
-          case 1:
-            if (stage2Disp == enteredValue) {
-              textBox.attribute("hidden", true);
-              thisBall.velocity = createVector(stage2Velocity, 0);
-              thisBall.isActive = true;
-              timerIsActive = true;
-              timer = setInterval(incrimentTimer, 10);
-            } else {
-              instructionStage = 0;
-            }
-            break;
-          case 2:
-            if (stage2Velocity == enteredValue) {
-              textBox.attribute("hidden", true);
-              thisBall.velocity = createVector(stage2Velocity, 0);
-              thisBall.isActive = true;
-              timerIsActive = true;
-              timer = setInterval(incrimentTimer, 10);
-            } else {
-              instructionStage = 0;
-            }
-            break;
+        if (!thisBall.isActive) {
+          enteredValue = parseFloat(textBox.value());
+          switch (versionID) {
+            case 0:
+              if (stage2Time == enteredValue) {
+                textBox.attribute("hidden", true);
+                thisBall.velocity = createVector(stage2Velocity, 0);
+                thisBall.isActive = true;
+                timerIsActive = true;
+                timer = setInterval(incrimentTimer, 10);
+              } else {
+                instructionStage = 0;
+              }
+              break;
+            case 1:
+              if (stage2Disp == enteredValue) {
+                textBox.attribute("hidden", true);
+                thisBall.velocity = createVector(stage2Velocity, 0);
+                thisBall.isActive = true;
+                timerIsActive = true;
+                timer = setInterval(incrimentTimer, 10);
+              } else {
+                instructionStage = 0;
+              }
+              break;
+            case 2:
+              if (stage2Velocity == enteredValue) {
+                textBox.attribute("hidden", true);
+                thisBall.velocity = createVector(stage2Velocity, 0);
+                thisBall.isActive = true;
+                timerIsActive = true;
+                timer = setInterval(incrimentTimer, 10);
+              } else {
+                instructionStage = 0;
+              }
+              break;
+          }
         }
         break;
     }

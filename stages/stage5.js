@@ -134,12 +134,14 @@ function stage5KeyPressed(value) {
         break;
       case 13:
         //handle enter
-        enteredValue = parseFloat(textBox.value());
-        textBox.attribute("hidden", true);
-        thisBall.changeVelocity(createVector(enteredValue, 0));
-        thisBall.isActive = true;
-        timerIsActive = true;
-        timer = setInterval(incrimentTimer, 10);
+        if (!thisBall.isActive) {
+          enteredValue = parseFloat(textBox.value());
+          textBox.attribute("hidden", true);
+          thisBall.changeVelocity(createVector(enteredValue, 0));
+          thisBall.isActive = true;
+          timerIsActive = true;
+          timer = setInterval(incrimentTimer, 10);
+        }
         break;
     }
   }

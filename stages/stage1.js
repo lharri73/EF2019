@@ -88,13 +88,14 @@ function stage1KeyPressed(value) {
   if (instructionStage > maxInstruction) {
     switch (value) {
       case 32: //32 = space
-        thisBall.isActive = !thisBall.isActive;
         break;
       case 13: //13 = Enter
-        enteredVelocity = parseInt(textBox.value());
-        textBox.attribute("hidden", true);
-        thisBall.velocity = createVector(enteredVelocity, 0);
-        thisBall.isActive = true;
+        if (!thisBall.isActive) {
+          enteredVelocity = parseInt(textBox.value());
+          textBox.attribute("hidden", true);
+          thisBall.velocity = createVector(enteredVelocity, 0);
+          thisBall.isActive = true;
+        }
         break;
       default:
     }

@@ -108,46 +108,47 @@ function stage3KeyPressed(value) {
   if (instructionStage > maxInstruction) {
     switch (value) {
       case 32: //32 = space
-        thisBall.isActive = !thisBall.isActive;
         break;
       case 13:
         //handle enter
-        enteredValue = parseFloat(textBox.value());
-        /*IDs:
-         *  0: given distance, acceleration, finalVelocity (solve for time)
-         *  1: given distance, time, acceleration (solve for finalVelocity)
-         *  2: given time, finalVelocity, acceleration (solve for distance)
-         *  3: given time, finalVelocity, distance (solve for acceleration)
-         */
-        switch (versionID) {
-          case 0:
-            if (stage3Time == enteredValue) {
-              correctAnswer3();
-            } else {
-              instructionStage = 0;
-            }
-            break;
-          case 1:
-            if (stage3Vel == enteredValue) {
-              correctAnswer3();
-            } else {
-              instructionStage = 0;
-            }
-            break;
-          case 2:
-            if (stage3Disp == enteredValue) {
-              correctAnswer3();
-            } else {
-              instructionStage = 0;
-            }
-            break;
-          case 3:
-            if (stage3Accel == enteredValue) {
-              correctAnswer3();
-            } else {
-              instructionStage = 0;
-            }
-            break;
+        if (!thisBall.isActive) {
+          enteredValue = parseFloat(textBox.value());
+          /*IDs:
+           *  0: given distance, acceleration, finalVelocity (solve for time)
+           *  1: given distance, time, acceleration (solve for finalVelocity)
+           *  2: given time, finalVelocity, acceleration (solve for distance)
+           *  3: given time, finalVelocity, distance (solve for acceleration)
+           */
+          switch (versionID) {
+            case 0:
+              if (stage3Time == enteredValue) {
+                correctAnswer3();
+              } else {
+                instructionStage = 0;
+              }
+              break;
+            case 1:
+              if (stage3Vel == enteredValue) {
+                correctAnswer3();
+              } else {
+                instructionStage = 0;
+              }
+              break;
+            case 2:
+              if (stage3Disp == enteredValue) {
+                correctAnswer3();
+              } else {
+                instructionStage = 0;
+              }
+              break;
+            case 3:
+              if (stage3Accel == enteredValue) {
+                correctAnswer3();
+              } else {
+                instructionStage = 0;
+              }
+              break;
+          }
         }
         break; //break the enter case
     }

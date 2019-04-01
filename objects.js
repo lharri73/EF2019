@@ -46,8 +46,9 @@ class ball {
       //ever frame is 1/60th of a second
       let currentTrail = new Dot(this.position.x, this.position.y);
       this.trail.push(currentTrail);
-      this.velocity.add(p5.Vector.div(this.acceleration, 60));
-      this.position.add(p5.Vector.div(this.velocity, 60));
+      this.velocity.add(p5.Vector.div(this.acceleration, getFrameRate()));
+      this.position.add(p5.Vector.div(this.velocity, getFrameRate()));
+      console.log(getFrameRate());
     }
   }
   changeVelocity(newVelocity) {

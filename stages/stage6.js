@@ -127,16 +127,17 @@ function stage6KeyPressed(value) {
   if (instructionStage > maxInstruction) {
     switch (value) {
       case 32: //32 = space
-        thisBall.isActive = !thisBall.isActive;
         break;
       case 13:
         //handle enter
-        enteredValue = parseFloat(textBox.value());
-        textBox.attribute("hidden", true);
-        thisBall.changeVelocity(createVector(enteredValue, 0));
-        thisBall.isActive = true;
-        timerIsActive = true;
-        timer = setInterval(incrimentTimer, 10);
+        if (!thisBall.isActive) {
+          enteredValue = parseFloat(textBox.value());
+          textBox.attribute("hidden", true);
+          thisBall.changeVelocity(createVector(enteredValue, 0));
+          thisBall.isActive = true;
+          timerIsActive = true;
+          timer = setInterval(incrimentTimer, 10);
+        }
         break;
       default:
     }
