@@ -215,7 +215,8 @@ function incrimentStage() {
   if (stageNumber == maxStage) {
     //you win and have made it through all of the stages!
     //determine if we reset or just keep it at this stage
-    resetStage();
+      stageNumber = 1;
+      resetStage();
     return;
   }
 

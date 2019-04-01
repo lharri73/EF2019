@@ -11,33 +11,33 @@
 ## ...
 //1
 Failure! Hint: The number in the top right is the answer.
-Correct +10 Points!
+Correct +5 Points!
 The goal of the game is to use the information provided in the top left to hit the target
 The equations necessary to solve the problem will be provided in the bottom left
 //2
 Failure! Hint: Divide the total distance by the time it takes to travel that distance. (Bottom Left Corner)
-Correct +20 Points!
+Correct +10 Points!
 Use the Equations in the bottom left corner to solve for the missing variable.
 //3
 Failure! Start by writing out what you know. Then use the formula from the bottom left corner to figure out the missing variable.
-Correct +18 Points!
+Correct +15 Points!
 Use the Equations in the bottom left corner to solve for the missing variable.
 //4
 Failure! Hint: Solve for time using the change in the Y distance and the Y acceleration. Then assume the initial velocity is 0 because the ball is moving from rest.
-Correct +18 Points!
+Correct +20 Points!
 Use the Equations in the bottom left corner to solve for the missing variable.
 //5
 ## These can be negative
 Failure! Hint: Find time using the Y displacement and Y acceleration, then find initial Velocity using X displacement and X acceleration and time previously found.
-Correct +20 Points!
+Correct! +20 Points!
 Use the Equations in the bottom left corner to solve for the missing variable.
 //6
 Failure! Hint: Same as stage number 5, except you have to find the components for the acceleration. 
-Correct!
+Correct! +25 Points!
 Use the Equations in the bottom left corner to solve for the missing variable.
 //7
-failure
-Correct +27 Points!
+Failure! Hint: Use the trajectory equation!
+Correct! +30 Points!
 description images/Pangolin01.jpg 500 300 description text here
 ##NOTE: for stage 7, it is possible for the ball to go above the screen, but only above
 ##We also need to add sin/cos/tan stuff to this...
