@@ -95,15 +95,15 @@ function setup() {
 }
 
 function drawBackgroundObjects() {
-  if(stageNumber == 5 || stageNumber \\ 6){
-    for(cloud of marsClouds){
+  if (stageNumber == 5 || stageNumber == 6) {
+    for (cloud of marsClouds) {
       cloud.draw();
     }
-  }else{
-  for (cloud of clouds) {
-    cloud.draw();
+  } else {
+    for (cloud of clouds) {
+      cloud.draw();
+    }
   }
-}
 }
 
 function draw() {
