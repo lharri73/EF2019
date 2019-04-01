@@ -32,9 +32,8 @@ Failure! Hint: Find time using the Y displacement and Y acceleration, then find 
 Correct +20 Points!
 Use the Equations in the bottom left corner to solve for the missing variable.
 //6
-## These can be negative
-Failure!
-Correct + 25 Points!
+Failure! Hint: Same as stage number 5, except you have to find the components for the acceleration. 
+Correct!
 Use the Equations in the bottom left corner to solve for the missing variable.
 //7
 failure
