@@ -14,7 +14,7 @@ class target {
       this.picture,
       this.position.x - this.radius,
       this.position.y - this.radius,
-      this.radius * 2, //TODO: fix the images so they are the right size
+      this.radius * 2,
       this.radius * 2
     );
     //ellipse(this.position.x, this.position.y, this.radius * 2);
@@ -35,23 +35,21 @@ class ball {
     fill(244, 75, 66); //red color for the ball
     stroke(0); //sets the outline color to white
     strokeWeight(1); //this is the default stroke weight
-    ellipse(
-      this.position.x,
-      this.position.y,
-      this.radius * 2 //IDK why this is twice what I think it should be
-    ); //TODO: not sure if I like the image she drew
+    ellipse(this.position.x, this.position.y, this.radius * 2);
     for (let dot of this.trail) {
       dot.draw();
     }
   }
   update() {
     if (this.isActive) {
+      var thisFrameRate = parseFloat(roundToFixed(getFrameRate(), 2));
       //offset because this happens every frame, not every second
       //ever frame is 1/60th of a second
       let currentTrail = new Dot(this.position.x, this.position.y);
       this.trail.push(currentTrail);
-      this.velocity.add(p5.Vector.div(this.acceleration, 60));
-      this.position.add(p5.Vector.div(this.velocity, 60));
+      this.velocity.add(p5.Vector.div(this.acceleration, thisFrameRate));
+      this.position.add(p5.Vector.div(this.velocity, thisFrameRate));
+      console.log(getFrameRate());
     }
   }
   changeVelocity(newVelocity) {

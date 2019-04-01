@@ -154,23 +154,27 @@ function stage7KeyPressed(value) {
         break;
       case 13:
         //handle enter
-        timerIsActive = true;
-        timer = setInterval(incrimentTimer, 10);
-        switch (versionID) {
-          case 0:
-            var newHorVel =
-              stage7Velocity.mag() * cos(radians(parseFloat(textBox.value())));
-            var newVerVel =
-              stage7Velocity.mag() * sin(radians(parseFloat(textBox.value())));
-            stage7Velocity = createVector(newHorVel, -1 * newVerVel);
-            thisBall.changeVelocity(stage7Velocity);
-            thisBall.isActive = true;
-            break;
-          case 1:
-            stage7Velocity.setMag(parseFloat(textBox.value()));
-            thisBall.changeVelocity(stage7Velocity);
-            thisBall.isActive = true;
-            break;
+        if (!thisBall.isActive) {
+          timerIsActive = true;
+          timer = setInterval(incrimentTimer, 50);
+          switch (versionID) {
+            case 0:
+              var newHorVel =
+                stage7Velocity.mag() *
+                cos(radians(parseFloat(textBox.value())));
+              var newVerVel =
+                stage7Velocity.mag() *
+                sin(radians(parseFloat(textBox.value())));
+              stage7Velocity = createVector(newHorVel, -1 * newVerVel);
+              thisBall.changeVelocity(stage7Velocity);
+              thisBall.isActive = true;
+              break;
+            case 1:
+              stage7Velocity.setMag(parseFloat(textBox.value()));
+              thisBall.changeVelocity(stage7Velocity);
+              thisBall.isActive = true;
+              break;
+          }
         }
         break;
     }

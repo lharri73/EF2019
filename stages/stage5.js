@@ -3,8 +3,6 @@ function stage5Constructor() {
   instructionStage = 2;
   maxInstruction = instructions[stageNumber].length;
   equationImage = loadImage("images/eqns/acceleration_eqns.jpg");
-  //TODO: find new color cause this is garbage.
-  //looking for a mars-like color
   newBackgroundColor = color("#c1440e");
   backgroundColorChanged = true;
   ballPosition = createVector(
@@ -136,12 +134,14 @@ function stage5KeyPressed(value) {
         break;
       case 13:
         //handle enter
-        enteredValue = parseFloat(textBox.value());
-        textBox.attribute("hidden", true);
-        thisBall.changeVelocity(createVector(enteredValue, 0));
-        thisBall.isActive = true;
-        timerIsActive = true;
-        timer = setInterval(incrimentTimer, 10);
+        if (!thisBall.isActive) {
+          enteredValue = parseFloat(textBox.value());
+          textBox.attribute("hidden", true);
+          thisBall.changeVelocity(createVector(enteredValue, 0));
+          thisBall.isActive = true;
+          timerIsActive = true;
+          timer = setInterval(incrimentTimer, 50);
+        }
         break;
     }
   }
