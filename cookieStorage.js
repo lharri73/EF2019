@@ -41,9 +41,9 @@ function resetCookies() {
   highScore = 0;
   stageNumber = 1;
   constructorRun = false;
-  setup();
   var a = new Date(new Date().getTime() + 1000 * 2 * 60 * 60 * 24);
   document.cookie = "highestStage=1; expires=" + a.toGMTString() + "; path=/";
   document.cookie = "highestScore=0; expires=" + a.toGMTString() + "; path=/";
   document.cookie = "currentScore=0; expires=" + a.toGMTString() + "; path=/";
+  setup();
 }
