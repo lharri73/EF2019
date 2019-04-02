@@ -128,7 +128,7 @@ function stage4KeyPressed(value) {
     instructionStage++;
   }
   if (instructionStage == 1) {
-    changeScore(18);
+    changeScore(20);
     incrimentStage();
   }
   if (instructionStage == 0) {

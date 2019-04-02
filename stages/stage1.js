@@ -70,12 +70,13 @@ function drawObjectivesStage1() {
   stroke(0);
   strokeWeight(3);
   noFill();
-  rect(0, 0, 200, 75);
+  rect(0, 0, 200, 50);
 
   strokeWeight(1);
   fill(0);
   textSize(12);
-  text("Final Velocity: " + velocityGoal + "m/s", 10, textAscent() + 10);
+  text("Final Velocity  : " + velocityGoal + "m/s", 10, textAscent() + 10);
+  text("Initial Velocity: ?", 10, textAscent()*2 + 15);
   textSize(20);
 }
 //------------------------------------------------------------------------------
@@ -106,7 +107,7 @@ function stage1KeyPressed(value) {
     instructionStage++;
   }
   if (instructionStage == 1) {
-    changeScore(10);
+    changeScore(5);
     incrimentStage();
   }
   if (instructionStage == 0) {

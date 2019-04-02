@@ -100,7 +100,7 @@ function drawObjectivesStage6() {
     textAscent() + 10
   );
   text(
-    "Chanrge in y Displacement : " + stage6VerDisp + "m",
+    "Change in y Displacement : " + stage6VerDisp + "m",
     10,
     textAscent() * 2 + 15
   );

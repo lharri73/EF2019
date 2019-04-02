@@ -84,9 +84,9 @@ class wall {
   draw() {
     fill(130, 62, 0);
     if (this.type == TOP) {
-      rect(this.position, 0, this.width, this.height);
+      rect(this.position - this.width/2, 0, this.width, this.height);
     } else {
-      rect(this.position, windowHeight, this.width, -1 * this.height);
+      rect(this.position - this.width/2, windowHeight, this.width, -1 * this.height);
     }
   }
 }

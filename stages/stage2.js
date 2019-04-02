@@ -108,18 +108,18 @@ function drawObjectivesStage2() {
   switch (versionID) {
     case 0:
       text("Displacement: " + stage2Disp + "m", 10, textAscent() + 10);
-      text("Velocity:" + stage2Velocity + "m/s", 10, textAscent() * 2 + 15);
-      text("Time: ?", 10, textAscent() * 3 + 20);
+      text("Velocity    : " + stage2Velocity + "m/s", 10, textAscent() * 2 + 15);
+      text("Time        : ?", 10, textAscent() * 3 + 20);
       break;
     case 1:
       text("Displacement: ?", 10, textAscent() + 10);
-      text("Velocity:" + stage2Velocity + "m/s", 10, textAscent() * 2 + 15);
-      text("Time: " + stage2Time + "s", 10, textAscent() * 3 + 20);
+      text("Velocity    : " + stage2Velocity + "m/s", 10, textAscent() * 2 + 15);
+      text("Time        : " + stage2Time + "s", 10, textAscent() * 3 + 20);
       break;
     case 2:
       text("Displacement: " + stage2Disp + "m", 10, textAscent() + 10);
-      text("Velocity: ?", 10, textAscent() * 2 + 15);
-      text("Time: " + stage2Time + "s", 10, textAscent() * 3 + 20);
+      text("Velocity    : ?", 10, textAscent() * 2 + 15);
+      text("Time        : " + stage2Time + "s", 10, textAscent() * 3 + 20);
       break;
   }
   textSize(20);
@@ -183,7 +183,7 @@ function stage2KeyPressed(value) {
     instructionStage++;
   }
   if (instructionStage == 1) {
-    changeScore(20);
+    changeScore(10);
     incrimentStage();
   }
   if (instructionStage == 0) {

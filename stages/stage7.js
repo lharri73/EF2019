@@ -185,7 +185,7 @@ function stage7KeyPressed(value) {
     instructionStage++;
   }
   if (instructionStage == 1) {
-    changeScore(27);
+    changeScore(30);
     incrimentStage();
   }
   if (instructionStage == 0) {
@@ -199,7 +199,7 @@ function stage7MouseClicked() {
 }
 
 function drawImageStage7() {
-    drawImage(equationImage, 400, 100);
+    drawImage(equationImage, 400, 50);
 }
 
 function stage7Resized() {
