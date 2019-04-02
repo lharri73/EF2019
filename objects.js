@@ -49,7 +49,7 @@ class ball {
       this.trail.push(currentTrail);
       this.velocity.add(p5.Vector.div(this.acceleration, thisFrameRate));
       this.position.add(p5.Vector.div(this.velocity, thisFrameRate));
-      console.log(getFrameRate());
+      //console.log(getFrameRate());
     }
   }
   changeVelocity(newVelocity) {
