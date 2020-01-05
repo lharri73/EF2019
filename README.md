@@ -1,12 +1,5 @@
 # EF152 2019 Final project
 
-Simply run by serving this repository, starting with index.html. 
+This project was created to fulfill the requirements of the Engineering fundamentals 152 course at The University of Tennessee - Knoxville. This project's team consisted of Zach Webber, Courtney Weaver, and myself. 
 
-This can most easily be done by installing the http-server package with npm. 
-
-1. Install http-server
-```bash
-  npm install http-server -g
-  http-server
-```
-2. Open your browser and navigate to `127.0.0.1:8080`
+The final version of this project that was presented can be found at https://lharri73.github.io/EF2019/
